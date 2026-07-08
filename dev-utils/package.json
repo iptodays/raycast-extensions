@@ -1,0 +1,885 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "dev-utils",
+  "title": "Dev Utils",
+  "description": "A collection of everyday developer utilities — JSON, Base64, UUID, Timestamp, URL, Color, and more",
+  "icon": "icon.png",
+  "author": "iptodays",
+  "owner": "chaeco",
+  "categories": ["Developer Tools", "Productivity"],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "json-tool",
+      "title": "JSON Tool",
+      "subtitle": "Dev Utils",
+      "description": "Format, validate, minify, and escape JSON strings",
+      "mode": "view"
+    },
+    {
+      "name": "base64-tool",
+      "title": "Base64 Tool",
+      "subtitle": "Dev Utils",
+      "description": "Encode and decode Base64 strings",
+      "mode": "view"
+    },
+    {
+      "name": "uuid-tool",
+      "title": "UUID Tool",
+      "subtitle": "Dev Utils",
+      "description": "Generate UUIDs (v4, v7) and validate UUID strings",
+      "mode": "view"
+    },
+    {
+      "name": "timestamp-tool",
+      "title": "Timestamp Tool",
+      "subtitle": "Dev Utils",
+      "description": "Convert between Unix timestamps and human-readable dates",
+      "mode": "view"
+    },
+    {
+      "name": "url-tool",
+      "title": "URL Tool",
+      "subtitle": "Dev Utils",
+      "description": "URL encode/decode and parse query parameters",
+      "mode": "view"
+    },
+    {
+      "name": "color-tool",
+      "title": "Color Tool",
+      "subtitle": "Dev Utils",
+      "description": "Convert between HEX, RGB, HSL, and named CSS colors",
+      "mode": "view"
+    },
+    {
+      "name": "case-converter",
+      "title": "Case Converter",
+      "subtitle": "Dev Utils",
+      "description": "Convert text between camelCase, PascalCase, snake_case, kebab-case, and more",
+      "mode": "view"
+    },
+    {
+      "name": "hash-generator",
+      "title": "Hash Generator",
+      "subtitle": "Dev Utils",
+      "description": "Generate MD5, SHA-1, SHA-256, SHA-512 hashes",
+      "mode": "view"
+    },
+    {
+      "name": "text-counter",
+      "title": "Text Counter",
+      "subtitle": "Dev Utils",
+      "description": "Count characters, words, lines, paragraphs, bytes, and estimate reading time",
+      "mode": "view"
+    },
+    {
+      "name": "html-entity",
+      "title": "HTML Entity Tool",
+      "subtitle": "Dev Utils",
+      "description": "Encode and decode HTML entities",
+      "mode": "view"
+    },
+    {
+      "name": "jwt-decoder",
+      "title": "JWT Decoder",
+      "subtitle": "Dev Utils",
+      "description": "Decode JWT tokens and inspect header, payload, and signature",
+      "mode": "view"
+    },
+    {
+      "name": "number-base",
+      "title": "Number Base Converter",
+      "subtitle": "Dev Utils",
+      "description": "Convert between decimal, hexadecimal, octal, and binary number systems",
+      "mode": "view"
+    },
+    {
+      "name": "lorem-ipsum",
+      "title": "Lorem Ipsum Generator",
+      "subtitle": "Dev Utils",
+      "description": "Generate placeholder text in sentences or paragraphs",
+      "mode": "view"
+    },
+    {
+      "name": "password-generator",
+      "title": "Password Generator",
+      "subtitle": "Dev Utils",
+      "description": "Generate secure random passwords with configurable character types and length",
+      "mode": "view"
+    },
+    {
+      "name": "string-inspector",
+      "title": "String Inspector",
+      "subtitle": "Dev Utils",
+      "description": "Inspect character codes, UTF-8 encodings, and Unicode categories",
+      "mode": "view"
+    },
+    {
+      "name": "regex-tester",
+      "title": "Regex Tester",
+      "subtitle": "Dev Utils",
+      "description": "Test regular expressions against input text with match results",
+      "mode": "view"
+    },
+    {
+      "name": "yaml-json",
+      "title": "YAML ↔ JSON Converter",
+      "subtitle": "Dev Utils",
+      "description": "Bidirectional conversion between YAML and JSON formats",
+      "mode": "view"
+    },
+    {
+      "name": "diff-checker",
+      "title": "Diff Checker",
+      "subtitle": "Dev Utils",
+      "description": "Side-by-side line diff comparison between two texts",
+      "mode": "view"
+    },
+    {
+      "name": "sql-formatter",
+      "title": "SQL Formatter",
+      "subtitle": "Dev Utils",
+      "description": "Format SQL queries with keyword uppercase and indentation",
+      "mode": "view"
+    },
+    {
+      "name": "css-unit",
+      "title": "CSS Unit Converter",
+      "subtitle": "Dev Utils",
+      "description": "Convert between px, rem, em, pt, and percentage units",
+      "mode": "view"
+    },
+    {
+      "name": "data-size",
+      "title": "Data Size Converter",
+      "subtitle": "Dev Utils",
+      "description": "Convert between B, KB, MB, GB, TB, PB data size units",
+      "mode": "view"
+    },
+    {
+      "name": "ip-calculator",
+      "title": "IP / CIDR Calculator",
+      "subtitle": "Dev Utils",
+      "description": "Calculate network address, broadcast, host range from CIDR notation",
+      "mode": "view"
+    },
+    {
+      "name": "ascii-table",
+      "title": "ASCII Table",
+      "subtitle": "Dev Utils",
+      "description": "Reference table of ASCII characters (0–127) with decimal, hex, and char",
+      "mode": "view"
+    },
+    {
+      "name": "cron-parser",
+      "title": "Cron Expression Parser",
+      "subtitle": "Dev Utils",
+      "description": "Parse cron expressions and explain what they mean",
+      "mode": "view"
+    },
+    {
+      "name": "random-generator",
+      "title": "Random Generator",
+      "subtitle": "Dev Utils",
+      "description": "Generate random integers, hex tokens, and alphanumeric strings",
+      "mode": "view"
+    },
+    {
+      "name": "string-escaper",
+      "title": "String Escaper",
+      "subtitle": "Dev Utils",
+      "description": "Escape and unescape strings for JSON, regex, and C-style formats",
+      "mode": "view"
+    },
+    {
+      "name": "http-status",
+      "title": "HTTP Status Codes",
+      "subtitle": "Dev Utils",
+      "description": "Searchable reference of HTTP status codes with descriptions",
+      "mode": "view"
+    },
+    {
+      "name": "mime-lookup",
+      "title": "MIME Type Lookup",
+      "subtitle": "Dev Utils",
+      "description": "Lookup MIME types by file extension",
+      "mode": "view"
+    },
+    {
+      "name": "color-contrast",
+      "title": "Color Contrast Checker",
+      "subtitle": "Dev Utils",
+      "description": "Check WCAG AA/AAA contrast ratio between foreground and background colors",
+      "mode": "view"
+    },
+    {
+      "name": "markdown-table",
+      "title": "Markdown Table Formatter",
+      "subtitle": "Dev Utils",
+      "description": "Format and align markdown tables",
+      "mode": "view"
+    },
+    {
+      "name": "semver-sort",
+      "title": "SemVer Sorter",
+      "subtitle": "Dev Utils",
+      "description": "Sort, compare, and validate semantic version strings",
+      "mode": "view"
+    },
+    {
+      "name": "ip-converter",
+      "title": "IP Address Converter",
+      "subtitle": "Dev Utils",
+      "description": "Convert between IPv4 addresses and integers / hex",
+      "mode": "view"
+    },
+    {
+      "name": "ports-reference",
+      "title": "Common Ports Reference",
+      "subtitle": "Dev Utils",
+      "description": "Searchable table of common TCP/UDP port numbers",
+      "mode": "view"
+    },
+    {
+      "name": "timezone",
+      "title": "Timezone Converter",
+      "subtitle": "Dev Utils",
+      "description": "Convert times across multiple timezones",
+      "mode": "view"
+    },
+    {
+      "name": "csv-preview",
+      "title": "CSV Preview",
+      "subtitle": "Dev Utils",
+      "description": "Parse and display CSV data in a formatted table view",
+      "mode": "view"
+    },
+    {
+      "name": "html-preview",
+      "title": "HTML Preview",
+      "subtitle": "Dev Utils",
+      "description": "Preview and copy rendered HTML",
+      "mode": "view"
+    },
+    {
+      "name": "credit-card",
+      "title": "Credit Card Validator",
+      "subtitle": "Dev Utils",
+      "description": "Validate credit card numbers via Luhn algorithm and detect issuer",
+      "mode": "view"
+    },
+    {
+      "name": "bookmarklet",
+      "title": "Bookmarklet Generator",
+      "subtitle": "Dev Utils",
+      "description": "Generate bookmarklet HTML from JavaScript code",
+      "mode": "view"
+    },
+    {
+      "name": "js-minifier",
+      "title": "JS/JSON Minifier",
+      "subtitle": "Dev Utils",
+      "description": "Minify JavaScript and JSON code by removing whitespace and comments",
+      "mode": "view"
+    },
+    {
+      "name": "text-sort",
+      "title": "Text Sort",
+      "subtitle": "Dev Utils",
+      "description": "Sort lines alphabetically, reverse, by length, unique, shuffle, or natural order",
+      "mode": "view"
+    },
+    {
+      "name": "math-eval",
+      "title": "Math Evaluator",
+      "subtitle": "Dev Utils",
+      "description": "Evaluate mathematical expressions in real time",
+      "mode": "view"
+    },
+    {
+      "name": "xml-formatter",
+      "title": "XML Formatter",
+      "subtitle": "Dev Utils",
+      "description": "Format, minify, and validate XML strings",
+      "mode": "view"
+    },
+    {
+      "name": "unit-converter",
+      "title": "Universal Unit Converter",
+      "subtitle": "Dev Utils",
+      "description": "Convert between temperature, length, weight, speed, area, volume, and data units",
+      "mode": "view"
+    },
+    {
+      "name": "json-to-typescript",
+      "title": "JSON to TypeScript",
+      "subtitle": "Dev Utils",
+      "description": "Generate TypeScript interfaces from JSON objects",
+      "mode": "view"
+    },
+    {
+      "name": "html-stripper",
+      "title": "HTML Tag Stripper",
+      "subtitle": "Dev Utils",
+      "description": "Strip HTML tags and extract clean text content",
+      "mode": "view"
+    },
+    {
+      "name": "date-calculator",
+      "title": "Date Calculator",
+      "subtitle": "Dev Utils",
+      "description": "Calculate date differences, add/subtract days, inspect date details",
+      "mode": "view"
+    },
+    {
+      "name": "text-replacer",
+      "title": "Text Find & Replace",
+      "subtitle": "Dev Utils",
+      "description": "Find and replace text with optional regex support",
+      "mode": "view"
+    },
+    {
+      "name": "line-tool",
+      "title": "Line Tool",
+      "subtitle": "Dev Utils",
+      "description": "Add line numbers, trim whitespace, deduplicate, remove empty lines, reverse, shuffle",
+      "mode": "view"
+    },
+    {
+      "name": "tab-space",
+      "title": "Tab ↔ Space Converter",
+      "subtitle": "Dev Utils",
+      "description": "Convert between tabs and spaces with configurable tab size",
+      "mode": "view"
+    },
+    {
+      "name": "roman-numeral",
+      "title": "Roman Numeral Converter",
+      "subtitle": "Dev Utils",
+      "description": "Convert between decimal numbers and Roman numerals (1–3999)",
+      "mode": "view"
+    },
+    {
+      "name": "dotenv-sorter",
+      "title": "Dotenv Sorter",
+      "subtitle": "Dev Utils",
+      "description": "Sort and format .env files alphabetically or by prefix group",
+      "mode": "view"
+    },
+    {
+      "name": "mac-address",
+      "title": "MAC Address Tool",
+      "subtitle": "Dev Utils",
+      "description": "Format, validate, and generate random MAC addresses",
+      "mode": "view"
+    },
+    {
+      "name": "caesar-cipher",
+      "title": "Caesar / ROT13 Cipher",
+      "subtitle": "Dev Utils",
+      "description": "Encode and decode text using Caesar cipher with configurable shift",
+      "mode": "view"
+    },
+    {
+      "name": "json-csv",
+      "title": "JSON ↔ CSV Converter",
+      "subtitle": "Dev Utils",
+      "description": "Bidirectional conversion between JSON arrays and CSV format",
+      "mode": "view"
+    },
+    {
+      "name": "named-colors",
+      "title": "Named CSS Colors",
+      "subtitle": "Dev Utils",
+      "description": "Browse 140+ named CSS colors with hex and RGB values",
+      "mode": "view"
+    },
+    {
+      "name": "search-filter",
+      "title": "Search / Filter / Grep",
+      "subtitle": "Dev Utils",
+      "description": "Filter lines matching a search term or regex pattern",
+      "mode": "view"
+    },
+    {
+      "name": "image-to-base64",
+      "title": "Image ↔ Base64",
+      "subtitle": "Dev Utils",
+      "description": "Convert between image data URIs and Base64 encoded strings",
+      "mode": "view"
+    },
+    {
+      "name": "number-to-words",
+      "title": "Number to Words",
+      "subtitle": "Dev Utils",
+      "description": "Convert numbers to English word representation (e.g. 1234 → one thousand two hundred thirty-four)",
+      "mode": "view"
+    },
+    {
+      "name": "chmod-calc",
+      "title": "Chmod Calculator",
+      "subtitle": "Dev Utils",
+      "description": "Convert between numeric (755) and symbolic (rwxr-xr-x) permission modes",
+      "mode": "view"
+    },
+    {
+      "name": "slug-generator",
+      "title": "Slug Generator",
+      "subtitle": "Dev Utils",
+      "description": "Generate URL-friendly slugs from any text",
+      "mode": "view"
+    },
+    {
+      "name": "morse-code",
+      "title": "Morse Code Converter",
+      "subtitle": "Dev Utils",
+      "description": "Convert between text and Morse code",
+      "mode": "view"
+    },
+    {
+      "name": "nato-phonetic",
+      "title": "NATO Phonetic Alphabet",
+      "subtitle": "Dev Utils",
+      "description": "Convert text to NATO phonetic alphabet (Alpha, Bravo, Charlie…)",
+      "mode": "view"
+    },
+    {
+      "name": "percentage-calc",
+      "title": "Percentage Calculator",
+      "subtitle": "Dev Utils",
+      "description": "Calculate percentage, percent of, and percent change",
+      "mode": "view"
+    },
+    {
+      "name": "fraction-decimal",
+      "title": "Fraction ↔ Decimal",
+      "subtitle": "Dev Utils",
+      "description": "Convert between fractions and decimal numbers",
+      "mode": "view"
+    },
+    {
+      "name": "lat-long",
+      "title": "Lat/Long Converter",
+      "subtitle": "Dev Utils",
+      "description": "Convert between decimal degrees and DMS (degrees/minutes/seconds) coordinates",
+      "mode": "view"
+    },
+    {
+      "name": "levenshtein",
+      "title": "String Distance",
+      "subtitle": "Dev Utils",
+      "description": "Calculate Levenshtein distance and similarity between two strings",
+      "mode": "view"
+    },
+    {
+      "name": "base-encode",
+      "title": "Base32 / Base58 Encoder",
+      "subtitle": "Dev Utils",
+      "description": "Encode and decode Base32 and Base58 strings",
+      "mode": "view"
+    },
+    {
+      "name": "string-repeater",
+      "title": "String Joiner / Repeater",
+      "subtitle": "Dev Utils",
+      "description": "Repeat text, join lines, or pad strings with configurable separator",
+      "mode": "view"
+    },
+    {
+      "name": "jwt-signer",
+      "title": "JWT Signer",
+      "subtitle": "Dev Utils",
+      "description": "Sign JWTs with HS256 using custom header, payload, and secret key",
+      "mode": "view"
+    },
+    {
+      "name": "uuid-decoder",
+      "title": "UUID Decoder",
+      "subtitle": "Dev Utils",
+      "description": "Decode UUID version, variant, and timestamp information",
+      "mode": "view"
+    },
+    {
+      "name": "pem-decoder",
+      "title": "PEM Decoder",
+      "subtitle": "Dev Utils",
+      "description": "Inspect PEM-encoded certificates, keys, and other DER data",
+      "mode": "view"
+    },
+    {
+      "name": "text-binary",
+      "title": "Text ↔ Binary / Hex",
+      "subtitle": "Dev Utils",
+      "description": "Convert between text, binary, and hexadecimal representations",
+      "mode": "view"
+    },
+    {
+      "name": "emoji-picker",
+      "title": "Emoji Picker",
+      "subtitle": "Dev Utils",
+      "description": "Search and copy emoji characters by name or keyword",
+      "mode": "view"
+    },
+    {
+      "name": "country-codes",
+      "title": "Country Codes",
+      "subtitle": "Dev Utils",
+      "description": "Look up ISO alpha-2 / alpha-3 country codes by country name",
+      "mode": "view"
+    },
+    {
+      "name": "language-codes",
+      "title": "Language Codes",
+      "subtitle": "Dev Utils",
+      "description": "Look up ISO 639-1 / 639-2 language codes by language name",
+      "mode": "view"
+    },
+    {
+      "name": "unicode-lookup",
+      "title": "Unicode Lookup",
+      "subtitle": "Dev Utils",
+      "description": "Look up Unicode character details by code point or character",
+      "mode": "view"
+    },
+    {
+      "name": "regex-patterns",
+      "title": "Common Regex Patterns",
+      "subtitle": "Dev Utils",
+      "description": "Quick reference for common regex patterns (email, URL, IP, phone, etc.)",
+      "mode": "view"
+    },
+    {
+      "name": "regex-syntax",
+      "title": "Regex Syntax Reference",
+      "subtitle": "Dev Utils",
+      "description": "Quick reference for regex syntax, quantifiers, groups, lookaheads, and more",
+      "mode": "view"
+    },
+    {
+      "name": "git-reference",
+      "title": "Git Command Reference",
+      "subtitle": "Dev Utils",
+      "description": "Searchable quick reference for common Git commands with examples",
+      "mode": "view"
+    },
+    {
+      "name": "docker-reference",
+      "title": "Docker Command Reference",
+      "subtitle": "Dev Utils",
+      "description": "Searchable quick reference for common Docker and Docker Compose commands",
+      "mode": "view"
+    },
+    {
+      "name": "dockerfile-reference",
+      "title": "Dockerfile Reference",
+      "subtitle": "Dev Utils",
+      "description": "Quick reference for Dockerfile instructions with examples",
+      "mode": "view"
+    },
+    {
+      "name": "json-schema",
+      "title": "JSON → JSON Schema",
+      "subtitle": "Dev Utils",
+      "description": "Generate JSON Schema (Draft-07) from sample JSON objects",
+      "mode": "view"
+    },
+    {
+      "name": "markdown-preview",
+      "title": "Markdown Preview",
+      "subtitle": "Dev Utils",
+      "description": "Preview and copy rendered markdown content",
+      "mode": "view"
+    },
+    {
+      "name": "tsv-converter",
+      "title": "TSV Converter",
+      "subtitle": "Dev Utils",
+      "description": "Convert TSV (tab-separated) data to CSV or JSON format",
+      "mode": "view"
+    },
+    {
+      "name": "password-strength",
+      "title": "Password Strength Checker",
+      "subtitle": "Dev Utils",
+      "description": "Evaluate password strength, entropy, and character composition",
+      "mode": "view"
+    },
+    {
+      "name": "random-picker",
+      "title": "Random Picker",
+      "subtitle": "Dev Utils",
+      "description": "Pick random items, choose one, or shuffle a list",
+      "mode": "view"
+    },
+    {
+      "name": "frequency-analyzer",
+      "title": "Text Frequency Analyzer",
+      "subtitle": "Dev Utils",
+      "description": "Analyze word and character frequency distribution in text",
+      "mode": "view"
+    },
+    {
+      "name": "ieee754",
+      "title": "IEEE 754 Float Converter",
+      "subtitle": "Dev Utils",
+      "description": "Convert decimal numbers to IEEE 754 single/double precision hex and binary",
+      "mode": "view"
+    },
+    {
+      "name": "ignore-generator",
+      "title": "Ignore File Generator",
+      "subtitle": "Dev Utils",
+      "description": "Generate .gitignore / .dockerignore templates for various languages and frameworks",
+      "mode": "view"
+    },
+    {
+      "name": "base85",
+      "title": "Base85 / ASCII85 Encoder",
+      "subtitle": "Dev Utils",
+      "description": "Encode and decode Base85 (ASCII85) encoded strings",
+      "mode": "view"
+    },
+    {
+      "name": "regex-playground",
+      "title": "Regex Playground",
+      "subtitle": "Dev Utils",
+      "description": "Test regex patterns with match display, capture groups, and replace functionality",
+      "mode": "view"
+    },
+    {
+      "name": "regex-explainer",
+      "title": "Regex Explainer",
+      "subtitle": "Dev Utils",
+      "description": "Break down regex patterns token by token with natural language explanation",
+      "mode": "view"
+    },
+    {
+      "name": "cron-generator",
+      "title": "Cron Expression Generator",
+      "subtitle": "Dev Utils",
+      "description": "Build cron expressions visually from dropdown selectors with natural language output",
+      "mode": "view"
+    },
+    {
+      "name": "html-to-markdown",
+      "title": "HTML → Markdown",
+      "subtitle": "Dev Utils",
+      "description": "Convert HTML to Markdown format",
+      "mode": "view"
+    },
+    {
+      "name": "cookie-parser",
+      "title": "Cookie Parser",
+      "subtitle": "Dev Utils",
+      "description": "Parse cookie strings into key-value pairs",
+      "mode": "view"
+    },
+    {
+      "name": "user-agent",
+      "title": "User-Agent Parser",
+      "subtitle": "Dev Utils",
+      "description": "Parse User-Agent strings to identify browser, OS, engine, and architecture",
+      "mode": "view"
+    },
+    {
+      "name": "nginx-reference",
+      "title": "Nginx Config Reference",
+      "subtitle": "Dev Utils",
+      "description": "Searchable reference for common Nginx directives with examples",
+      "mode": "view"
+    },
+    {
+      "name": "color-palette",
+      "title": "Color Palette Generator",
+      "subtitle": "Dev Utils",
+      "description": "Generate complementary, triadic, analogous, and monochromatic color palettes",
+      "mode": "view"
+    },
+    {
+      "name": "countdown",
+      "title": "Countdown Timer",
+      "subtitle": "Dev Utils",
+      "description": "Calculate days, hours, minutes, seconds until (or since) a target date",
+      "mode": "view"
+    },
+    {
+      "name": "form-urlencoded",
+      "title": "Form-URL Encoded Parser",
+      "subtitle": "Dev Utils",
+      "description": "Parse and encode application/x-www-form-urlencoded data to/from JSON",
+      "mode": "view"
+    },
+    {
+      "name": "json-diff",
+      "title": "JSON Diff",
+      "subtitle": "Dev Utils",
+      "description": "Structural deep comparison between two JSON objects",
+      "mode": "view"
+    },
+    {
+      "name": "css-layout-ref",
+      "title": "CSS Flexbox / Grid Reference",
+      "subtitle": "Dev Utils",
+      "description": "Quick reference for CSS Flexbox and Grid properties",
+      "mode": "view"
+    },
+    {
+      "name": "js-methods-ref",
+      "title": "JS Array & String Methods",
+      "subtitle": "Dev Utils",
+      "description": "Quick reference for JavaScript Array and String methods with signatures",
+      "mode": "view"
+    },
+    {
+      "name": "phone-formatter",
+      "title": "Phone Number Formatter",
+      "subtitle": "Dev Utils",
+      "description": "Format and normalize phone numbers for US, CN, UK, JP, and international",
+      "mode": "view"
+    },
+    {
+      "name": "scientific-notation",
+      "title": "Scientific Notation Converter",
+      "subtitle": "Dev Utils",
+      "description": "Convert between standard and scientific notation",
+      "mode": "view"
+    },
+    {
+      "name": "ini-parser",
+      "title": "INI Parser",
+      "subtitle": "Dev Utils",
+      "description": "Parse INI configuration files to JSON and back",
+      "mode": "view"
+    },
+    {
+      "name": "http-methods-ref",
+      "title": "HTTP Methods Reference",
+      "subtitle": "Dev Utils",
+      "description": "Reference for HTTP methods with safe and idempotent properties",
+      "mode": "view"
+    },
+    {
+      "name": "sql-insert-gen",
+      "title": "SQL INSERT Generator",
+      "subtitle": "Dev Utils",
+      "description": "Generate SQL INSERT statements from JSON or CSV data",
+      "mode": "view"
+    },
+    {
+      "name": "unix-perms-ref",
+      "title": "Unix Permissions Reference",
+      "subtitle": "Dev Utils",
+      "description": "Reference for Unix file permissions, SUID, SGID, and sticky bit",
+      "mode": "view"
+    },
+    {
+      "name": "stopwatch",
+      "title": "Stopwatch",
+      "subtitle": "Dev Utils",
+      "description": "Track elapsed time with start, pause, reset controls",
+      "mode": "view"
+    },
+    {
+      "name": "curl-generator",
+      "title": "cURL Command Generator",
+      "subtitle": "Dev Utils",
+      "description": "Build curl commands from URL, method, headers, and body fields",
+      "mode": "view"
+    },
+    {
+      "name": "json-path-query",
+      "title": "JSON Path Query",
+      "subtitle": "Dev Utils",
+      "description": "Query JSON objects with dot-notation path expressions",
+      "mode": "view"
+    },
+    {
+      "name": "package-json-inspector",
+      "title": "package.json Inspector",
+      "subtitle": "Dev Utils",
+      "description": "Inspect and validate package.json files for common issues",
+      "mode": "view"
+    },
+    {
+      "name": "editorconfig-gen",
+      "title": ".editorconfig Generator",
+      "subtitle": "Dev Utils",
+      "description": "Generate .editorconfig templates for various project types",
+      "mode": "view"
+    },
+    {
+      "name": "text-wrap",
+      "title": "Text Wrap / Justify",
+      "subtitle": "Dev Utils",
+      "description": "Wrap and justify text to a specified line width",
+      "mode": "view"
+    },
+    {
+      "name": "chinese-pinyin",
+      "title": "汉字 → 拼音 (Pinyin)",
+      "subtitle": "Dev Utils",
+      "description": "Convert Chinese characters to Pinyin with tone marks",
+      "mode": "view"
+    },
+    {
+      "name": "chinese-script",
+      "title": "简繁转换 (Script)",
+      "subtitle": "Dev Utils",
+      "description": "Convert between Simplified (简体) and Traditional (繁體) Chinese",
+      "mode": "view"
+    },
+    {
+      "name": "chinese-number",
+      "title": "中文数字转换 (Numbers)",
+      "subtitle": "Dev Utils",
+      "description": "Convert between Arabic numerals and Chinese numbers (一二三 / 壹贰叁)",
+      "mode": "view"
+    },
+    {
+      "name": "chinese-char-info",
+      "title": "汉字信息 (Char Info)",
+      "subtitle": "Dev Utils",
+      "description": "Analyze Chinese characters: radical, estimated strokes, Unicode codepoint",
+      "mode": "view"
+    },
+    {
+      "name": "chinese-unicode",
+      "title": "中文编码分析 (Unicode)",
+      "subtitle": "Dev Utils",
+      "description": "Analyze Chinese text Unicode codepoints and UTF-8 encoding",
+      "mode": "view"
+    },
+    {
+      "name": "chinese-segment",
+      "title": "中文分词 (Segment)",
+      "subtitle": "Dev Utils",
+      "description": "Segment Chinese text into words using dictionary-based matching",
+      "mode": "view"
+    },
+    {
+      "name": "chinese-slug",
+      "title": "中文拼音 Slug (Slug)",
+      "subtitle": "Dev Utils",
+      "description": "Generate Pinyin-based URL slugs from Chinese titles",
+      "mode": "view"
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.104.18"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^2.0.4",
+    "@types/node": "22.19.17",
+    "@types/react": "19.0.10",
+    "eslint": "^9.22.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "publish": "npx @raycast/api@latest publish"
+  }
+}
