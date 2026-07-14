@@ -19,7 +19,7 @@ jobs:
         working-directory: dev-utils
       - run: npm run build
         working-directory: dev-utils
-      - run: npx --no-install @raycast/api@latest publish
+      - run: npm run publish
         working-directory: dev-utils
         env:
           RAYCAST_TOKEN: ${{ secrets.RAYCAST_TOKEN }}
@@ -37,7 +37,7 @@ jobs:
         working-directory: dev-utils-ref
       - run: npm run build
         working-directory: dev-utils-ref
-      - run: npx --no-install @raycast/api@latest publish
+      - run: npm run publish
         working-directory: dev-utils-ref
         env:
           RAYCAST_TOKEN: ${{ secrets.RAYCAST_TOKEN }}
