@@ -1,3 +1,4 @@
+// Dev Utils — a collection of everyday developer tools
 import { useState } from "react";
 import { Form, ActionPanel, Action, Clipboard, showToast, Toast, Icon } from "@raycast/api";
 
