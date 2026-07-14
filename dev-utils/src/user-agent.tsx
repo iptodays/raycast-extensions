@@ -3,7 +3,7 @@ import { Form, ActionPanel, Action, Clipboard, showToast, Toast, Icon } from "@r
 
 function parseUA(ua: string): string {
   const info: string[] = [];
-  let uaStr = ua;
+  const uaStr = ua;
 
   // Browser
   const edgeM = ua.match(/Edg\/([\d.]+)/);

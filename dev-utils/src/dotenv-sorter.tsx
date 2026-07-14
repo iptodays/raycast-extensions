@@ -26,7 +26,7 @@ export default function DotenvSorter() {
       const m = line.match(/^([A-Za-z_][A-Za-z0-9_]*)=(.*)$/);
       if (m) {
         let key = m[1]!;
-        let value = m[2]!;
+        const value = m[2]!;
         if (uppercase) key = key.toUpperCase();
         vars.push({ key, value, raw: `${key}=${value}`, comment: currentComment });
         currentComment = "";

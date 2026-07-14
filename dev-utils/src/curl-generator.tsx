@@ -35,7 +35,7 @@ export default function CurlGenerator() {
 
   const copy = useCallback(async () => {
     if (!output) return;
-    await Clipboard.copy(output.replace(/ \\\n  /g, " "));
+    await Clipboard.copy(output.replace(/ \\\n {2}/g, " "));
     showToast(Toast.Style.Success, "Copied to clipboard");
   }, [output]);
 
