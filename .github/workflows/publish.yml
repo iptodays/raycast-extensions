@@ -3,10 +3,10 @@ name: Publish
 on:
   push:
     branches: [main]
-    paths: ['dev-utils/**']
+    paths: ['dev-utils/**', 'dev-utils-ref/**']
 
 jobs:
-  publish:
+  publish-dev-utils:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,5 +21,23 @@ jobs:
         working-directory: dev-utils
       - run: npx @raycast/api@latest publish
         working-directory: dev-utils
+        env:
+          RAYCAST_TOKEN: ${{ secrets.RAYCAST_TOKEN }}
+
+  publish-dev-utils-ref:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: dev-utils-ref/package-lock.json
+      - run: npm ci
+        working-directory: dev-utils-ref
+      - run: npm run build
+        working-directory: dev-utils-ref
+      - run: npx @raycast/api@latest publish
+        working-directory: dev-utils-ref
         env:
           RAYCAST_TOKEN: ${{ secrets.RAYCAST_TOKEN }}

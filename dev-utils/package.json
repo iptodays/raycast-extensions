@@ -164,13 +164,6 @@
       "mode": "view"
     },
     {
-      "name": "ascii-table",
-      "title": "ASCII Table",
-      "subtitle": "Dev Utils",
-      "description": "Reference table of ASCII characters (0–127) with decimal, hex, and char",
-      "mode": "view"
-    },
-    {
       "name": "cron-parser",
       "title": "Cron Expression Parser",
       "subtitle": "Dev Utils",
@@ -189,20 +182,6 @@
       "title": "String Escaper",
       "subtitle": "Dev Utils",
       "description": "Escape and unescape strings for JSON, regex, and C-style formats",
-      "mode": "view"
-    },
-    {
-      "name": "http-status",
-      "title": "HTTP Status Codes",
-      "subtitle": "Dev Utils",
-      "description": "Searchable reference of HTTP status codes with descriptions",
-      "mode": "view"
-    },
-    {
-      "name": "mime-lookup",
-      "title": "MIME Type Lookup",
-      "subtitle": "Dev Utils",
-      "description": "Lookup MIME types by file extension",
       "mode": "view"
     },
     {
@@ -231,13 +210,6 @@
       "title": "IP Address Converter",
       "subtitle": "Dev Utils",
       "description": "Convert between IPv4 addresses and integers / hex",
-      "mode": "view"
-    },
-    {
-      "name": "ports-reference",
-      "title": "Common Ports Reference",
-      "subtitle": "Dev Utils",
-      "description": "Searchable table of common TCP/UDP port numbers",
       "mode": "view"
     },
     {
@@ -388,13 +360,6 @@
       "mode": "view"
     },
     {
-      "name": "named-colors",
-      "title": "Named CSS Colors",
-      "subtitle": "Dev Utils",
-      "description": "Browse 140+ named CSS colors with hex and RGB values",
-      "mode": "view"
-    },
-    {
       "name": "search-filter",
       "title": "Search / Filter / Grep",
       "subtitle": "Dev Utils",
@@ -514,69 +479,6 @@
       "mode": "view"
     },
     {
-      "name": "emoji-picker",
-      "title": "Emoji Picker",
-      "subtitle": "Dev Utils",
-      "description": "Search and copy emoji characters by name or keyword",
-      "mode": "view"
-    },
-    {
-      "name": "country-codes",
-      "title": "Country Codes",
-      "subtitle": "Dev Utils",
-      "description": "Look up ISO alpha-2 / alpha-3 country codes by country name",
-      "mode": "view"
-    },
-    {
-      "name": "language-codes",
-      "title": "Language Codes",
-      "subtitle": "Dev Utils",
-      "description": "Look up ISO 639-1 / 639-2 language codes by language name",
-      "mode": "view"
-    },
-    {
-      "name": "unicode-lookup",
-      "title": "Unicode Lookup",
-      "subtitle": "Dev Utils",
-      "description": "Look up Unicode character details by code point or character",
-      "mode": "view"
-    },
-    {
-      "name": "regex-patterns",
-      "title": "Common Regex Patterns",
-      "subtitle": "Dev Utils",
-      "description": "Quick reference for common regex patterns (email, URL, IP, phone, etc.)",
-      "mode": "view"
-    },
-    {
-      "name": "regex-syntax",
-      "title": "Regex Syntax Reference",
-      "subtitle": "Dev Utils",
-      "description": "Quick reference for regex syntax, quantifiers, groups, lookaheads, and more",
-      "mode": "view"
-    },
-    {
-      "name": "git-reference",
-      "title": "Git Command Reference",
-      "subtitle": "Dev Utils",
-      "description": "Searchable quick reference for common Git commands with examples",
-      "mode": "view"
-    },
-    {
-      "name": "docker-reference",
-      "title": "Docker Command Reference",
-      "subtitle": "Dev Utils",
-      "description": "Searchable quick reference for common Docker and Docker Compose commands",
-      "mode": "view"
-    },
-    {
-      "name": "dockerfile-reference",
-      "title": "Dockerfile Reference",
-      "subtitle": "Dev Utils",
-      "description": "Quick reference for Dockerfile instructions with examples",
-      "mode": "view"
-    },
-    {
       "name": "json-schema",
       "title": "JSON → JSON Schema",
       "subtitle": "Dev Utils",
@@ -682,20 +584,6 @@
       "mode": "view"
     },
     {
-      "name": "nginx-reference",
-      "title": "Nginx Config Reference",
-      "subtitle": "Dev Utils",
-      "description": "Searchable reference for common Nginx directives with examples",
-      "mode": "view"
-    },
-    {
-      "name": "color-palette",
-      "title": "Color Palette Generator",
-      "subtitle": "Dev Utils",
-      "description": "Generate complementary, triadic, analogous, and monochromatic color palettes",
-      "mode": "view"
-    },
-    {
       "name": "countdown",
       "title": "Countdown Timer",
       "subtitle": "Dev Utils",
@@ -714,20 +602,6 @@
       "title": "JSON Diff",
       "subtitle": "Dev Utils",
       "description": "Structural deep comparison between two JSON objects",
-      "mode": "view"
-    },
-    {
-      "name": "css-layout-ref",
-      "title": "CSS Flexbox / Grid Reference",
-      "subtitle": "Dev Utils",
-      "description": "Quick reference for CSS Flexbox and Grid properties",
-      "mode": "view"
-    },
-    {
-      "name": "js-methods-ref",
-      "title": "JS Array & String Methods",
-      "subtitle": "Dev Utils",
-      "description": "Quick reference for JavaScript Array and String methods with signatures",
       "mode": "view"
     },
     {
@@ -752,24 +626,10 @@
       "mode": "view"
     },
     {
-      "name": "http-methods-ref",
-      "title": "HTTP Methods Reference",
-      "subtitle": "Dev Utils",
-      "description": "Reference for HTTP methods with safe and idempotent properties",
-      "mode": "view"
-    },
-    {
       "name": "sql-insert-gen",
       "title": "SQL INSERT Generator",
       "subtitle": "Dev Utils",
       "description": "Generate SQL INSERT statements from JSON or CSV data",
-      "mode": "view"
-    },
-    {
-      "name": "unix-perms-ref",
-      "title": "Unix Permissions Reference",
-      "subtitle": "Dev Utils",
-      "description": "Reference for Unix file permissions, SUID, SGID, and sticky bit",
       "mode": "view"
     },
     {
@@ -781,7 +641,7 @@
     },
     {
       "name": "curl-generator",
-      "title": "cURL Command Generator",
+      "title": "CURL Command Generator",
       "subtitle": "Dev Utils",
       "description": "Build curl commands from URL, method, headers, and body fields",
       "mode": "view"
@@ -795,14 +655,14 @@
     },
     {
       "name": "package-json-inspector",
-      "title": "package.json Inspector",
+      "title": "Package.json Inspector",
       "subtitle": "Dev Utils",
       "description": "Inspect and validate package.json files for common issues",
       "mode": "view"
     },
     {
       "name": "editorconfig-gen",
-      "title": ".editorconfig Generator",
+      "title": ".Editorconfig Generator",
       "subtitle": "Dev Utils",
       "description": "Generate .editorconfig templates for various project types",
       "mode": "view"
@@ -812,55 +672,6 @@
       "title": "Text Wrap / Justify",
       "subtitle": "Dev Utils",
       "description": "Wrap and justify text to a specified line width",
-      "mode": "view"
-    },
-    {
-      "name": "chinese-pinyin",
-      "title": "汉字 → 拼音 (Pinyin)",
-      "subtitle": "Dev Utils",
-      "description": "Convert Chinese characters to Pinyin with tone marks",
-      "mode": "view"
-    },
-    {
-      "name": "chinese-script",
-      "title": "简繁转换 (Script)",
-      "subtitle": "Dev Utils",
-      "description": "Convert between Simplified (简体) and Traditional (繁體) Chinese",
-      "mode": "view"
-    },
-    {
-      "name": "chinese-number",
-      "title": "中文数字转换 (Numbers)",
-      "subtitle": "Dev Utils",
-      "description": "Convert between Arabic numerals and Chinese numbers (一二三 / 壹贰叁)",
-      "mode": "view"
-    },
-    {
-      "name": "chinese-char-info",
-      "title": "汉字信息 (Char Info)",
-      "subtitle": "Dev Utils",
-      "description": "Analyze Chinese characters: radical, estimated strokes, Unicode codepoint",
-      "mode": "view"
-    },
-    {
-      "name": "chinese-unicode",
-      "title": "中文编码分析 (Unicode)",
-      "subtitle": "Dev Utils",
-      "description": "Analyze Chinese text Unicode codepoints and UTF-8 encoding",
-      "mode": "view"
-    },
-    {
-      "name": "chinese-segment",
-      "title": "中文分词 (Segment)",
-      "subtitle": "Dev Utils",
-      "description": "Segment Chinese text into words using dictionary-based matching",
-      "mode": "view"
-    },
-    {
-      "name": "chinese-slug",
-      "title": "中文拼音 Slug (Slug)",
-      "subtitle": "Dev Utils",
-      "description": "Generate Pinyin-based URL slugs from Chinese titles",
       "mode": "view"
     }
   ],
