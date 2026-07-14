@@ -60,7 +60,7 @@ export default function CreditCardValidator() {
         `Length:   ${cleaned.length} digits`,
         `Luhn:     ${valid ? "✓ PASS" : "✗ FAIL"}`,
         `Status:   ${valid ? "✓ Valid card number" : "✗ Invalid card number"}`,
-      ].join("\n")
+      ].join("\n"),
     );
   }, [input]);
 
@@ -79,13 +79,7 @@ export default function CreditCardValidator() {
         </ActionPanel>
       }
     >
-      <Form.TextField
-        id="input"
-        title="Card Number"
-        placeholder="4111111111111111"
-        value={input}
-        onChange={setInput}
-      />
+      <Form.TextField id="input" title="Card Number" placeholder="4111111111111111" value={input} onChange={setInput} />
       {output && <Form.TextArea id="output" title="Result" value={output} onChange={() => {}} />}
       {error && <Form.Description text={`⚠️ ${error}`} />}
     </Form>

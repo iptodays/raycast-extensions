@@ -11,9 +11,11 @@ export default function ChineseUnicode() {
     for (const ch of input) {
       const cp = ch.codePointAt(0)!;
       const hex = cp.toString(16).toUpperCase().padStart(4, "0");
-      const isCJK = cp >= 0x4E00 && cp <= 0x9FFF;
+      const isCJK = cp >= 0x4e00 && cp <= 0x9fff;
       const utf8 = new TextEncoder().encode(ch);
-      const utf8Hex = Array.from(utf8).map((b) => b.toString(16).padStart(2, "0")).join(" ");
+      const utf8Hex = Array.from(utf8)
+        .map((b) => b.toString(16).padStart(2, "0"))
+        .join(" ");
       lines.push(`${ch} → U+${hex} | UTF-8: ${utf8Hex} | ${isCJK ? "常用汉字" : "非CJK"}`);
     }
     setOutput(lines.join("\n"));

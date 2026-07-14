@@ -65,13 +65,7 @@ export default function HtmlEntityTool() {
         </ActionPanel>
       }
     >
-      <Form.TextArea
-        id="input"
-        title="Input"
-        placeholder="Text or HTML entities…"
-        value={input}
-        onChange={setInput}
-      />
+      <Form.TextArea id="input" title="Input" placeholder="Text or HTML entities…" value={input} onChange={setInput} />
       {output && <Form.TextArea id="output" title="Output" value={output} onChange={setOutput} />}
       {error && <Form.Description text={`⚠️ ${error}`} />}
     </Form>

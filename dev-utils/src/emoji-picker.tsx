@@ -111,13 +111,14 @@ export default function EmojiPicker() {
   const filtered = useMemo(
     () =>
       search.trim()
-        ? EMOJIS.filter(([emoji, name, code]) =>
-            name.toLowerCase().includes(search.toLowerCase()) ||
-            code.toLowerCase().includes(search) ||
-            emoji === search.trim()
+        ? EMOJIS.filter(
+            ([emoji, name, code]) =>
+              name.toLowerCase().includes(search.toLowerCase()) ||
+              code.toLowerCase().includes(search) ||
+              emoji === search.trim(),
           )
         : EMOJIS,
-    [search]
+    [search],
   );
 
   return (
@@ -145,15 +146,9 @@ export default function EmojiPicker() {
         onChange={setSearch}
       />
       {filtered.slice(0, 100).map(([emoji, name, code]) => (
-        <Form.Description
-          key={code}
-          title={`${emoji}  ${name}`}
-          text={code}
-        />
+        <Form.Description key={code} title={`${emoji}  ${name}`} text={code} />
       ))}
-      {filtered.length > 100 && (
-        <Form.Description title="" text={`… and ${filtered.length - 100} more`} />
-      )}
+      {filtered.length > 100 && <Form.Description title="" text={`… and ${filtered.length - 100} more`} />}
     </Form>
   );
 }

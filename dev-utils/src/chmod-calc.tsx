@@ -34,11 +34,9 @@ export default function ChmodCalc() {
       const mode = parseInt(s, 8);
       setError("");
       setOutput(
-        [
-          `Numeric: ${s}`,
-          `Symbolic: ${formatSymbolic(mode)}`,
-          `Binary:  ${mode.toString(2).padStart(9, "0")}`,
-        ].join("\n")
+        [`Numeric: ${s}`, `Symbolic: ${formatSymbolic(mode)}`, `Binary:  ${mode.toString(2).padStart(9, "0")}`].join(
+          "\n",
+        ),
       );
     } else if (/^[rwx-]{9}$/i.test(s)) {
       let mode = 0;
@@ -51,7 +49,7 @@ export default function ChmodCalc() {
           `Symbolic: ${s}`,
           `Numeric: ${mode.toString(8).padStart(3, "0")}`,
           `Binary:  ${mode.toString(2).padStart(9, "0")}`,
-        ].join("\n")
+        ].join("\n"),
       );
     } else {
       setError("Enter 3-digit octal (755) or 9-char symbolic (rwxr-xr-x)");
@@ -73,13 +71,7 @@ export default function ChmodCalc() {
         </ActionPanel>
       }
     >
-      <Form.TextField
-        id="input"
-        title="Permissions"
-        placeholder="755 or rwxr-xr-x"
-        value={input}
-        onChange={setInput}
-      />
+      <Form.TextField id="input" title="Permissions" placeholder="755 or rwxr-xr-x" value={input} onChange={setInput} />
       {output && <Form.TextArea id="output" title="Result" value={output} onChange={() => {}} />}
       {error && <Form.Description text={`⚠️ ${error}`} />}
     </Form>

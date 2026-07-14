@@ -38,7 +38,7 @@ export default function DateCalculator() {
         ``,
         `Date 1: ${d1.toLocaleDateString()} ${d1.toLocaleTimeString()}`,
         `Date 2: ${d2.toLocaleDateString()} ${d2.toLocaleTimeString()}`,
-      ].join("\n")
+      ].join("\n"),
     );
   }, [date1, date2]);
 
@@ -59,9 +59,7 @@ export default function DateCalculator() {
     }
     setError("");
     d.setDate(d.getDate() + n);
-    setOutput(
-      `${date1} ${n >= 0 ? "+" : ""}${n} days = ${d.toLocaleDateString()} ${d.toLocaleTimeString()}`
-    );
+    setOutput(`${date1} ${n >= 0 ? "+" : ""}${n} days = ${d.toLocaleDateString()} ${d.toLocaleTimeString()}`);
   }, [date1, days]);
 
   const dateInfo = useCallback(() => {
@@ -91,7 +89,7 @@ export default function DateCalculator() {
         `Unix (ms): ${d.getTime()}`,
         `ISO: ${d.toISOString()}`,
         `UTC: ${d.toUTCString()}`,
-      ].join("\n")
+      ].join("\n"),
     );
   }, [date1]);
 
@@ -128,13 +126,7 @@ export default function DateCalculator() {
         value={date2}
         onChange={setDate2}
       />
-      <Form.TextField
-        id="days"
-        title="Days to Add"
-        placeholder="7, -30, 90"
-        value={days}
-        onChange={setDays}
-      />
+      <Form.TextField id="days" title="Days to Add" placeholder="7, -30, 90" value={days} onChange={setDays} />
       {output && <Form.TextArea id="output" title="Result" value={output} onChange={() => {}} />}
       {error && <Form.Description text={`⚠️ ${error}`} />}
     </Form>

@@ -30,7 +30,10 @@ function decodeUUID(uuid: string): DecodedUUID | null {
     const epoch = BigInt("0x01b21dd213814000");
     const ms = Number((timeInt - epoch) / BigInt(10000));
     decoded.timestamp = new Date(ms).toISOString().replace("T", " ").slice(0, 19);
-    decoded.node = cleaned.slice(20, 32).replace(/(.{2})(?=[^ ])/g, "$1:").toUpperCase();
+    decoded.node = cleaned
+      .slice(20, 32)
+      .replace(/(.{2})(?=[^ ])/g, "$1:")
+      .toUpperCase();
   }
 
   if (version === 7) {
@@ -58,10 +61,7 @@ export default function UuidDecoder() {
       return;
     }
     setError("");
-    const parts = [
-      `Version:  v${result.version}`,
-      `Variant:  ${result.variant}`,
-    ];
+    const parts = [`Version:  v${result.version}`, `Variant:  ${result.variant}`];
     if (result.timestamp) parts.push(`Time:     ${result.timestamp}`);
     if (result.node) parts.push(`Node:     ${result.node}`);
     setOutput(parts.join("\n"));

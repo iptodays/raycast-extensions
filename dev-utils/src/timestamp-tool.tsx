@@ -39,7 +39,9 @@ export default function TimestampTool() {
   const now = useCallback(() => {
     setInput("");
     setError("");
-    setOutput(`Unix (s): ${Math.floor(Date.now() / 1000)}\nUnix (ms): ${Date.now()}\nLocal: ${new Date().toLocaleString()}\nUTC: ${new Date().toUTCString()}`);
+    setOutput(
+      `Unix (s): ${Math.floor(Date.now() / 1000)}\nUnix (ms): ${Date.now()}\nLocal: ${new Date().toLocaleString()}\nUTC: ${new Date().toUTCString()}`,
+    );
   }, []);
 
   const copy = useCallback(async () => {

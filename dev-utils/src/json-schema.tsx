@@ -10,9 +10,12 @@ function inferType(val: unknown): Record<string, unknown> {
     return { type: "array", items };
   }
   switch (typeof val) {
-    case "string": return { type: "string" };
-    case "number": return Number.isInteger(val) ? { type: "integer" } : { type: "number" };
-    case "boolean": return { type: "boolean" };
+    case "string":
+      return { type: "string" };
+    case "number":
+      return Number.isInteger(val) ? { type: "integer" } : { type: "number" };
+    case "boolean":
+      return { type: "boolean" };
     case "object": {
       const props: Record<string, unknown> = {};
       const required: string[] = [];
@@ -27,7 +30,8 @@ function inferType(val: unknown): Record<string, unknown> {
         additionalProperties: false,
       };
     }
-    default: return { type: "string" };
+    default:
+      return { type: "string" };
   }
 }
 
@@ -75,7 +79,13 @@ export default function JsonSchemaGenerator() {
         </ActionPanel>
       }
     >
-      <Form.TextField id="title" title="Schema Title (optional)" placeholder="MySchema" value={title} onChange={setTitle} />
+      <Form.TextField
+        id="title"
+        title="Schema Title (optional)"
+        placeholder="MySchema"
+        value={title}
+        onChange={setTitle}
+      />
       <Form.TextArea
         id="input"
         title="JSON"

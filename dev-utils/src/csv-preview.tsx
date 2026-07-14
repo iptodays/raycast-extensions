@@ -46,8 +46,7 @@ export default function CsvPreview() {
 
     const sep = "+" + widths.map((w) => "-".repeat(w + 2)).join("+") + "+";
 
-    const fmtRow = (cells: string[]) =>
-      "| " + cells.map((c, i) => (c ?? "").padEnd(widths[i]!)).join(" | ") + " |";
+    const fmtRow = (cells: string[]) => "| " + cells.map((c, i) => (c ?? "").padEnd(widths[i]!)).join(" | ") + " |";
 
     const lines = [
       sep,

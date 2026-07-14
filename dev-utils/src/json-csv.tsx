@@ -27,8 +27,10 @@ function csvToJson(csv: string): string {
     let inQuotes = false;
     for (const ch of line) {
       if (ch === '"') inQuotes = !inQuotes;
-      else if (ch === "," && !inQuotes) { vals.push(current); current = ""; }
-      else current += ch;
+      else if (ch === "," && !inQuotes) {
+        vals.push(current);
+        current = "";
+      } else current += ch;
     }
     vals.push(current);
 
@@ -77,7 +79,12 @@ export default function JsonCsvTool() {
         </ActionPanel>
       }
     >
-      <Form.Dropdown id="direction" title="Direction" value={direction} onChange={(v) => setDirection(v as "json-csv" | "csv-json")}>
+      <Form.Dropdown
+        id="direction"
+        title="Direction"
+        value={direction}
+        onChange={(v) => setDirection(v as "json-csv" | "csv-json")}
+      >
         <Form.Dropdown.Item value="json-csv" title="JSON → CSV" />
         <Form.Dropdown.Item value="csv-json" title="CSV → JSON" />
       </Form.Dropdown>

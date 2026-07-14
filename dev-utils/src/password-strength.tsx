@@ -63,7 +63,7 @@ export default function PasswordStrength() {
         `Lowercase: ${/[a-z]/.test(input) ? "✓" : "✗"}`,
         `Digits: ${/\d/.test(input) ? "✓" : "✗"}`,
         `Symbols: ${/[^a-zA-Z0-9]/.test(input) ? "✓" : "✗"}`,
-      ].join("\n")
+      ].join("\n"),
     );
   }, [input]);
 

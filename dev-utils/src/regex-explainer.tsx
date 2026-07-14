@@ -62,7 +62,11 @@ function tokenize(pattern: string): Token[] {
       i++;
       let raw = "[";
       let negated = false;
-      if (pattern[i] === "^") { raw += "^"; negated = true; i++; }
+      if (pattern[i] === "^") {
+        raw += "^";
+        negated = true;
+        i++;
+      }
       // collect until ]
       let inner = "";
       while (i < pattern.length && pattern[i] !== "]") {
@@ -72,9 +76,7 @@ function tokenize(pattern: string): Token[] {
       }
       raw += "]";
       i++;
-      const desc = negated
-        ? `matches any character NOT in [${inner}]`
-        : `matches any character in [${inner}]`;
+      const desc = negated ? `matches any character NOT in [${inner}]` : `matches any character in [${inner}]`;
       tokens.push({ raw, kind: "char-class", description: desc });
       continue;
     }
@@ -88,12 +90,27 @@ function tokenize(pattern: string): Token[] {
 
       if (pattern[i] === "?") {
         i++;
-        if (pattern[i] === ":") { kind = "non-capturing"; desc = "non-capturing group"; i++; }
-        else if (pattern[i] === "=") { kind = "lookahead"; desc = "positive lookahead"; i++; }
-        else if (pattern[i] === "!") { kind = "lookahead"; desc = "negative lookahead"; i++; }
-        else if (pattern[i] === "<" && pattern[i + 1] === "=") { kind = "lookbehind"; desc = "positive lookbehind"; i += 2; }
-        else if (pattern[i] === "<" && pattern[i + 1] === "!") { kind = "lookbehind"; desc = "negative lookbehind"; i += 2; }
-        else if (pattern[i] === "<") {
+        if (pattern[i] === ":") {
+          kind = "non-capturing";
+          desc = "non-capturing group";
+          i++;
+        } else if (pattern[i] === "=") {
+          kind = "lookahead";
+          desc = "positive lookahead";
+          i++;
+        } else if (pattern[i] === "!") {
+          kind = "lookahead";
+          desc = "negative lookahead";
+          i++;
+        } else if (pattern[i] === "<" && pattern[i + 1] === "=") {
+          kind = "lookbehind";
+          desc = "positive lookbehind";
+          i += 2;
+        } else if (pattern[i] === "<" && pattern[i + 1] === "!") {
+          kind = "lookbehind";
+          desc = "negative lookbehind";
+          i += 2;
+        } else if (pattern[i] === "<") {
           // named group
           kind = "named-group";
           let name = "";
@@ -173,9 +190,7 @@ function tokenize(pattern: string): Token[] {
 }
 
 function buildLongDescription(tokens: Token[]): string {
-  return tokens
-    .map((t) => `\`${t.raw}\` — ${t.description}`)
-    .join("\n");
+  return tokens.map((t) => `\`${t.raw}\` — ${t.description}`).join("\n");
 }
 
 export default function RegexExplainer() {
@@ -226,22 +241,22 @@ export default function RegexExplainer() {
         </ActionPanel>
       }
     >
-      <Form.TextField id="pattern" title="Pattern" placeholder="^(\\d{4}-\\d{2}-\\d{2})$" value={pattern} onChange={setPattern} />
+      <Form.TextField
+        id="pattern"
+        title="Pattern"
+        placeholder="^(\\d{4}-\\d{2}-\\d{2})$"
+        value={pattern}
+        onChange={setPattern}
+      />
       <Form.TextField id="flags" title="Flags" placeholder="g" value={flags} onChange={setFlags} />
 
-      {isValid && !error && (
-        <Form.Description title="Status" text="Valid regex" />
-      )}
+      {isValid && !error && <Form.Description title="Status" text="Valid regex" />}
 
       {tokens.length > 0 && (
         <>
           <Form.Separator />
           {tokens.map((t, i) => (
-            <Form.Description
-              key={i}
-              title={`${i + 1}. \`${t.raw}\``}
-              text={`${t.kind} — ${t.description}`}
-            />
+            <Form.Description key={i} title={`${i + 1}. \`${t.raw}\``} text={`${t.kind} — ${t.description}`} />
           ))}
         </>
       )}

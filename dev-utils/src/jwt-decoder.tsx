@@ -2,7 +2,10 @@ import { useState, useCallback } from "react";
 import { Form, ActionPanel, Action, showToast, Toast, Icon } from "@raycast/api";
 
 function decodeBase64Url(s: string): string {
-  return s.replace(/-/g, "+").replace(/_/g, "/").padEnd(Math.ceil(s.length / 4) * 4, "=");
+  return s
+    .replace(/-/g, "+")
+    .replace(/_/g, "/")
+    .padEnd(Math.ceil(s.length / 4) * 4, "=");
 }
 
 function decodeJwt(token: string): { header: string; payload: string; error?: string } {
@@ -12,12 +15,8 @@ function decodeJwt(token: string): { header: string; payload: string; error?: st
   }
 
   try {
-    const header = new TextDecoder().decode(
-      Uint8Array.from(atob(decodeBase64Url(parts[0]!)), (c) => c.charCodeAt(0))
-    );
-    const payload = new TextDecoder().decode(
-      Uint8Array.from(atob(decodeBase64Url(parts[1]!)), (c) => c.charCodeAt(0))
-    );
+    const header = new TextDecoder().decode(Uint8Array.from(atob(decodeBase64Url(parts[0]!)), (c) => c.charCodeAt(0)));
+    const payload = new TextDecoder().decode(Uint8Array.from(atob(decodeBase64Url(parts[1]!)), (c) => c.charCodeAt(0)));
     return { header, payload };
   } catch {
     return { header: "", payload: "", error: "Failed to decode JWT — invalid Base64 encoding" };
@@ -82,30 +81,9 @@ export default function JwtDecoder() {
         value={input}
         onChange={setInput}
       />
-      {header && (
-        <Form.TextArea
-          id="header"
-          title="Header"
-          value={header}
-          onChange={() => {}}
-        />
-      )}
-      {payload && (
-        <Form.TextArea
-          id="payload"
-          title="Payload"
-          value={payload}
-          onChange={() => {}}
-        />
-      )}
-      {signature && (
-        <Form.TextField
-          id="signature"
-          title="Signature"
-          value={signature}
-          onChange={() => {}}
-        />
-      )}
+      {header && <Form.TextArea id="header" title="Header" value={header} onChange={() => {}} />}
+      {payload && <Form.TextArea id="payload" title="Payload" value={payload} onChange={() => {}} />}
+      {signature && <Form.TextField id="signature" title="Signature" value={signature} onChange={() => {}} />}
       {error && <Form.Description text={`⚠️ ${error}`} />}
     </Form>
   );

@@ -68,13 +68,7 @@ export default function RandomGenerator() {
         </ActionPanel>
       }
     >
-      <Form.TextField
-        id="count"
-        title="Number of Values"
-        placeholder="1"
-        value={count}
-        onChange={setCount}
-      />
+      <Form.TextField id="count" title="Number of Values" placeholder="1" value={count} onChange={setCount} />
       {output && <Form.TextArea id="output" title="Output" value={output} onChange={setOutput} />}
     </Form>
   );

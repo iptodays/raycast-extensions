@@ -71,7 +71,12 @@ export default function DotenvSorter() {
         </ActionPanel>
       }
     >
-      <Form.Dropdown id="sortType" title="Sort Type" value={sortType} onChange={(v) => setSortType(v as "alpha" | "grouped")}>
+      <Form.Dropdown
+        id="sortType"
+        title="Sort Type"
+        value={sortType}
+        onChange={(v) => setSortType(v as "alpha" | "grouped")}
+      >
         <Form.Dropdown.Item value="alpha" title="Alphabetical" />
         <Form.Dropdown.Item value="grouped" title="Grouped by Prefix" />
       </Form.Dropdown>

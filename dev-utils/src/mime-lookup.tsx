@@ -55,13 +55,9 @@ export default function MimeLookup() {
   const filtered = useMemo(
     () =>
       search.trim()
-        ? MIME_TYPES.filter(
-            ([ext, mime]) =>
-              ext.includes(search.toLowerCase()) ||
-              mime.includes(search.toLowerCase())
-          )
+        ? MIME_TYPES.filter(([ext, mime]) => ext.includes(search.toLowerCase()) || mime.includes(search.toLowerCase()))
         : MIME_TYPES,
-    [search]
+    [search],
   );
 
   return (

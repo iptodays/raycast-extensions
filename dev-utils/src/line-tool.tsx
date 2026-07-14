@@ -1,7 +1,8 @@
 import { useState, useCallback } from "react";
 import { Form, ActionPanel, Action, Clipboard, showToast, Toast, Icon } from "@raycast/api";
 
-type LineOp = "number" | "trim" | "dedup" | "remove-empty" | "remove-duplicate-lines" | "reverse" | "sort-alpha" | "shuffle";
+type LineOp =
+  "number" | "trim" | "dedup" | "remove-empty" | "remove-duplicate-lines" | "reverse" | "sort-alpha" | "shuffle";
 
 function operate(text: string, op: LineOp): string {
   const lines = text.split("\n");
@@ -13,11 +14,13 @@ function operate(text: string, op: LineOp): string {
       return lines.map((l) => l.trimEnd()).join("\n");
     case "dedup": {
       const seen = new Set<string>();
-      return lines.filter((l) => {
-        if (seen.has(l)) return false;
-        seen.add(l);
-        return true;
-      }).join("\n");
+      return lines
+        .filter((l) => {
+          if (seen.has(l)) return false;
+          seen.add(l);
+          return true;
+        })
+        .join("\n");
     }
     case "remove-empty":
       return lines.filter((l) => l.trim()).join("\n");
@@ -82,13 +85,7 @@ export default function LineTool() {
           <Form.Dropdown.Item key={o.value} value={o.value} title={o.label} />
         ))}
       </Form.Dropdown>
-      <Form.TextArea
-        id="input"
-        title="Input"
-        placeholder="One item per line…"
-        value={input}
-        onChange={setInput}
-      />
+      <Form.TextArea id="input" title="Input" placeholder="One item per line…" value={input} onChange={setInput} />
       {output && <Form.TextArea id="output" title="Output" value={output} onChange={() => {}} />}
     </Form>
   );

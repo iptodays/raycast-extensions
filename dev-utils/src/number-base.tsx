@@ -87,13 +87,7 @@ export default function NumberBaseTool() {
         onChange={setInput}
       />
       {results.map((r) => (
-        <Form.TextField
-          key={r.label}
-          id={r.label}
-          title={r.label}
-          value={r.value}
-          onChange={() => {}}
-        />
+        <Form.TextField key={r.label} id={r.label} title={r.label} value={r.value} onChange={() => {}} />
       ))}
       {error && <Form.Description text={`⚠️ ${error}`} />}
     </Form>

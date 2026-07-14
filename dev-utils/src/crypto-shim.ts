@@ -18,9 +18,17 @@ export async function digest(algorithm: string, data: Uint8Array): Promise<Uint8
 export async function hmacSha256(secret: string, data: string): Promise<string> {
   if (typeof globalThis.crypto?.subtle?.importKey === "function") {
     const enc = new TextEncoder();
-    const key = await globalThis.crypto.subtle.importKey("raw", enc.encode(secret), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+    const key = await globalThis.crypto.subtle.importKey(
+      "raw",
+      enc.encode(secret),
+      { name: "HMAC", hash: "SHA-256" },
+      false,
+      ["sign"],
+    );
     const sig = await globalThis.crypto.subtle.sign("HMAC", key, enc.encode(data));
-    return Array.from(new Uint8Array(sig)).map((b) => b.toString(16).padStart(2, "0")).join("");
+    return Array.from(new Uint8Array(sig))
+      .map((b) => b.toString(16).padStart(2, "0"))
+      .join("");
   }
   return crypto.createHmac("sha256", secret).update(data).digest("hex");
 }

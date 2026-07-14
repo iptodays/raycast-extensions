@@ -24,14 +24,34 @@ function numberToChinese(num: number, big: boolean): string {
 }
 
 function chineseToNumber(text: string): number {
-  const map: Record<string, number> = { 零: 0, 一: 1, 二: 2, 三: 3, 四: 4, 五: 5, 六: 6, 七: 7, 八: 8, 九: 9,
-    十: 10, 百: 100, 千: 1000, 万: 10000, 亿: 100000000 };
+  const map: Record<string, number> = {
+    零: 0,
+    一: 1,
+    二: 2,
+    三: 3,
+    四: 4,
+    五: 5,
+    六: 6,
+    七: 7,
+    八: 8,
+    九: 9,
+    十: 10,
+    百: 100,
+    千: 1000,
+    万: 10000,
+    亿: 100000000,
+  };
   let total = 0;
   let section = 0;
   for (const ch of text) {
     const val = map[ch] ?? 0;
-    if (val >= 10) { section = (section || 1) * val; total += section; section = 0; }
-    else { section = val; }
+    if (val >= 10) {
+      section = (section || 1) * val;
+      total += section;
+      section = 0;
+    } else {
+      section = val;
+    }
   }
   return total + section;
 }
@@ -44,15 +64,24 @@ export default function ChineseNumber() {
   const [error, setError] = useState("");
 
   const convert = useCallback(() => {
-    if (!input.trim()) { setError("请输入数值或中文数字"); return; }
+    if (!input.trim()) {
+      setError("请输入数值或中文数字");
+      return;
+    }
     setError("");
     if (direction === "num2cn") {
       const num = parseFloat(input);
-      if (isNaN(num)) { setError("请输入有效的数字"); return; }
+      if (isNaN(num)) {
+        setError("请输入有效的数字");
+        return;
+      }
       setOutput(numberToChinese(num, big));
     } else {
       const num = chineseToNumber(input);
-      if (isNaN(num)) { setError("请输入有效的中文数字"); return; }
+      if (isNaN(num)) {
+        setError("请输入有效的中文数字");
+        return;
+      }
       setOutput(String(num));
     }
   }, [input, direction, big]);
@@ -72,14 +101,23 @@ export default function ChineseNumber() {
         </ActionPanel>
       }
     >
-      <Form.Dropdown id="direction" title="方向" value={direction} onChange={(v) => setDirection(v as "num2cn" | "cn2num")}>
+      <Form.Dropdown
+        id="direction"
+        title="方向"
+        value={direction}
+        onChange={(v) => setDirection(v as "num2cn" | "cn2num")}
+      >
         <Form.Dropdown.Item value="num2cn" title="数字 → 中文" />
         <Form.Dropdown.Item value="cn2num" title="中文 → 数字" />
       </Form.Dropdown>
-      {direction === "num2cn" && (
-        <Form.Checkbox id="big" label="大写 (壹贰叁)" value={big} onChange={setBig} />
-      )}
-      <Form.TextField id="input" title="输入" placeholder="12345 或 一万二千三百四十五" value={input} onChange={setInput} />
+      {direction === "num2cn" && <Form.Checkbox id="big" label="大写 (壹贰叁)" value={big} onChange={setBig} />}
+      <Form.TextField
+        id="input"
+        title="输入"
+        placeholder="12345 或 一万二千三百四十五"
+        value={input}
+        onChange={setInput}
+      />
       {output && <Form.TextField id="output" title="输出" value={output} onChange={() => {}} />}
       {error && <Form.Description text={`⚠️ ${error}`} />}
     </Form>

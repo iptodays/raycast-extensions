@@ -42,9 +42,12 @@ export default function FrequencyAnalyzer() {
     }
     const results = analyze(input, mode);
     const max = Math.max(1, parseInt(limit, 10) || 30);
-    const lines = results.slice(0, max).map(
-      (r, i) => `${String(i + 1).padStart(3)}. ${String(r.count).padStart(5)}  (${r.percent}%)  ${r.bar}  ${r.item.length > 20 ? r.item.slice(0, 20) + "…" : r.item}`
-    );
+    const lines = results
+      .slice(0, max)
+      .map(
+        (r, i) =>
+          `${String(i + 1).padStart(3)}. ${String(r.count).padStart(5)}  (${r.percent}%)  ${r.bar}  ${r.item.length > 20 ? r.item.slice(0, 20) + "…" : r.item}`,
+      );
     lines.unshift(`Total ${mode}s: ${results.reduce((s, r) => s + r.count, 0)} | Unique: ${results.length}`);
     lines.unshift("");
     setOutput(lines.join("\n"));
@@ -70,13 +73,7 @@ export default function FrequencyAnalyzer() {
         <Form.Dropdown.Item value="char" title="Characters" />
       </Form.Dropdown>
       <Form.TextField id="limit" title="Max Results" placeholder="30" value={limit} onChange={setLimit} />
-      <Form.TextArea
-        id="input"
-        title="Text"
-        placeholder="Paste text to analyze…"
-        value={input}
-        onChange={setInput}
-      />
+      <Form.TextArea id="input" title="Text" placeholder="Paste text to analyze…" value={input} onChange={setInput} />
       {output && <Form.TextArea id="output" title="Frequency Distribution" value={output} onChange={() => {}} />}
     </Form>
   );

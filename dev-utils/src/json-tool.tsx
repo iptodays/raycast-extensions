@@ -16,46 +16,49 @@ export default function JsonTool() {
   const [output, setOutput] = useState("");
   const [error, setError] = useState("");
 
-  const process = useCallback((action: JsonAction) => {
-    const trimmed = input.trim();
-    if (!trimmed) {
-      setError("Please enter a JSON string");
-      setOutput("");
-      return;
-    }
-
-    try {
-      setError("");
-      switch (action) {
-        case "format": {
-          const parsed = JSON.parse(trimmed);
-          setOutput(JSON.stringify(parsed, null, 2));
-          break;
-        }
-        case "minify": {
-          const parsed = JSON.parse(trimmed);
-          setOutput(JSON.stringify(parsed));
-          break;
-        }
-        case "validate": {
-          JSON.parse(trimmed);
-          setOutput("✓ Valid JSON");
-          break;
-        }
-        case "escape": {
-          setOutput(JSON.stringify(trimmed));
-          break;
-        }
-        case "unescape": {
-          setOutput(JSON.parse(trimmed));
-          break;
-        }
+  const process = useCallback(
+    (action: JsonAction) => {
+      const trimmed = input.trim();
+      if (!trimmed) {
+        setError("Please enter a JSON string");
+        setOutput("");
+        return;
       }
-    } catch (e) {
-      setError(`Invalid JSON: ${(e as Error).message}`);
-      setOutput("");
-    }
-  }, [input]);
+
+      try {
+        setError("");
+        switch (action) {
+          case "format": {
+            const parsed = JSON.parse(trimmed);
+            setOutput(JSON.stringify(parsed, null, 2));
+            break;
+          }
+          case "minify": {
+            const parsed = JSON.parse(trimmed);
+            setOutput(JSON.stringify(parsed));
+            break;
+          }
+          case "validate": {
+            JSON.parse(trimmed);
+            setOutput("✓ Valid JSON");
+            break;
+          }
+          case "escape": {
+            setOutput(JSON.stringify(trimmed));
+            break;
+          }
+          case "unescape": {
+            setOutput(JSON.parse(trimmed));
+            break;
+          }
+        }
+      } catch (e) {
+        setError(`Invalid JSON: ${(e as Error).message}`);
+        setOutput("");
+      }
+    },
+    [input],
+  );
 
   const copy = useCallback(async () => {
     if (!output) return;

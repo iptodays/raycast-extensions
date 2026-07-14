@@ -24,7 +24,7 @@ export default function CookieParser() {
     }
     const parsed = parseCookie(input);
     const lines = Object.entries(parsed).map(
-      ([key, val]) => `${key} = ${val.length > 100 ? val.slice(0, 100) + "…" : val}`
+      ([key, val]) => `${key} = ${val.length > 100 ? val.slice(0, 100) + "…" : val}`,
     );
     setOutput(
       [
@@ -33,7 +33,7 @@ export default function CookieParser() {
         "",
         "--- Raw JSON ---",
         JSON.stringify(parsed, null, 2),
-      ].join("\n")
+      ].join("\n"),
     );
   }, [input]);
 

@@ -132,13 +132,7 @@ export default function YamlJsonTool() {
         </ActionPanel>
       }
     >
-      <Form.TextArea
-        id="input"
-        title="Input"
-        placeholder="Enter JSON or YAML…"
-        value={input}
-        onChange={setInput}
-      />
+      <Form.TextArea id="input" title="Input" placeholder="Enter JSON or YAML…" value={input} onChange={setInput} />
       {output && (
         <Form.TextArea
           id="output"

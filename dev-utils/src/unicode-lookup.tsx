@@ -50,12 +50,9 @@ export default function UnicodeLookup() {
     setError("");
     const info = getUnicodeInfo(cp);
     setOutput(
-      [
-        `Character: ${info.ch}`,
-        `Code Point: ${info.hex}`,
-        `Decimal: ${info.code}`,
-        `Category: ${info.category}`,
-      ].join("\n")
+      [`Character: ${info.ch}`, `Code Point: ${info.hex}`, `Decimal: ${info.code}`, `Category: ${info.category}`].join(
+        "\n",
+      ),
     );
   };
 

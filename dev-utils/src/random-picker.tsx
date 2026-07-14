@@ -49,28 +49,29 @@ export default function RandomPicker() {
           <ActionPanel.Section title="Actions">
             <Action title="Pick Random" icon={Icon.ArrowRight} onAction={pick} />
             <Action title="Pick One" icon={Icon.Hourglass} onAction={pickOne} />
-            <Action title="Shuffle All" icon={Icon.RotateClockwise} onAction={() => {
-              const items = input.split("\n").filter(Boolean);
-              if (items.length === 0) { setError("Please enter items"); return; }
-              setError("");
-              for (let i = items.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [items[i], items[j]] = [items[j]!, items[i]!];
-              }
-              setOutput(items.join("\n"));
-            }} />
+            <Action
+              title="Shuffle All"
+              icon={Icon.RotateClockwise}
+              onAction={() => {
+                const items = input.split("\n").filter(Boolean);
+                if (items.length === 0) {
+                  setError("Please enter items");
+                  return;
+                }
+                setError("");
+                for (let i = items.length - 1; i > 0; i--) {
+                  const j = Math.floor(Math.random() * (i + 1));
+                  [items[i], items[j]] = [items[j]!, items[i]!];
+                }
+                setOutput(items.join("\n"));
+              }}
+            />
           </ActionPanel.Section>
           {output && <Action title="Copy Output" icon={Icon.Clipboard} onAction={copy} />}
         </ActionPanel>
       }
     >
-      <Form.TextArea
-        id="input"
-        title="Items"
-        placeholder="One item per line"
-        value={input}
-        onChange={setInput}
-      />
+      <Form.TextArea id="input" title="Items" placeholder="One item per line" value={input} onChange={setInput} />
       <Form.TextField id="count" title="Number to Pick" placeholder="1" value={count} onChange={setCount} />
       {output && <Form.TextArea id="output" title="Result" value={output} onChange={() => {}} />}
       {error && <Form.Description text={`⚠️ ${error}`} />}

@@ -9,7 +9,11 @@ interface Match {
   end: number;
 }
 
-function runRegex(pattern: string, flags: string, text: string): { matches: Match[]; error?: string; replaced?: string } {
+function runRegex(
+  pattern: string,
+  flags: string,
+  text: string,
+): { matches: Match[]; error?: string; replaced?: string } {
   if (!pattern) return { matches: [] };
 
   try {
@@ -124,10 +128,22 @@ export default function RegexPlayground() {
         </ActionPanel>
       }
     >
-      <Form.TextField id="pattern" title="Pattern" placeholder="\\b(\\w+)@(\\w+\\.\\w+)\\b" value={pattern} onChange={setPattern} />
+      <Form.TextField
+        id="pattern"
+        title="Pattern"
+        placeholder="\\b(\\w+)@(\\w+\\.\\w+)\\b"
+        value={pattern}
+        onChange={setPattern}
+      />
       <Form.TextField id="flags" title="Flags" placeholder="g" value={flags} onChange={setFlags} />
       <Form.TextField id="replace" title="Replacement" placeholder="$1" value={replace} onChange={setReplace} />
-      <Form.TextArea id="text" title="Test Text" placeholder="Text to search against…" value={text} onChange={setText} />
+      <Form.TextArea
+        id="text"
+        title="Test Text"
+        placeholder="Text to search against…"
+        value={text}
+        onChange={setText}
+      />
 
       {error && <Form.Description text={`⚠️ ${error}`} />}
 

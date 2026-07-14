@@ -18,7 +18,10 @@ function analyzeTable(text: string): string {
 
   if (!headerLine) return text;
 
-  const headers = headerLine.split("|").filter(Boolean).map((h) => h.trim());
+  const headers = headerLine
+    .split("|")
+    .filter(Boolean)
+    .map((h) => h.trim());
   const colCount = headers.length;
   if (colCount === 0) return text;
 
@@ -43,8 +46,7 @@ function analyzeTable(text: string): string {
       .join(" | ") +
     " |";
 
-  const fmtSep = (): string =>
-    "|" + widths.map((w) => "-".repeat(w + 2)).join("|") + "|";
+  const fmtSep = (): string => "|" + widths.map((w) => "-".repeat(w + 2)).join("|") + "|";
 
   return [fmtRow(headerLine), fmtSep(), ...dataLines.map(fmtRow)].join("\n");
 }

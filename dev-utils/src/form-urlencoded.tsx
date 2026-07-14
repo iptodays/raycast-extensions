@@ -7,10 +7,15 @@ export default function FormUrlEncoded() {
   const [error, setError] = useState("");
 
   const parse = useCallback(() => {
-    if (!input.trim()) { setError("Please enter form-urlencoded data"); return; }
+    if (!input.trim()) {
+      setError("Please enter form-urlencoded data");
+      return;
+    }
     const params = new URLSearchParams(input);
     const obj: Record<string, string> = {};
-    params.forEach((v, k) => { obj[k] = v; });
+    params.forEach((v, k) => {
+      obj[k] = v;
+    });
     setError("");
     setOutput(JSON.stringify(obj, null, 2));
   }, [input]);
@@ -43,7 +48,13 @@ export default function FormUrlEncoded() {
         </ActionPanel>
       }
     >
-      <Form.TextArea id="input" title="Input" placeholder="key1=val1&key2=val2 or JSON" value={input} onChange={setInput} />
+      <Form.TextArea
+        id="input"
+        title="Input"
+        placeholder="key1=val1&key2=val2 or JSON"
+        value={input}
+        onChange={setInput}
+      />
       {output && <Form.TextArea id="output" title="Output" value={output} onChange={() => {}} />}
       {error && <Form.Description text={`⚠️ ${error}`} />}
     </Form>

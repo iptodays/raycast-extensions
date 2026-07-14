@@ -59,13 +59,7 @@ export default function BookmarkletTool() {
         </ActionPanel>
       }
     >
-      <Form.TextField
-        id="name"
-        title="Bookmarklet Name"
-        placeholder="My Bookmarklet"
-        value={name}
-        onChange={setName}
-      />
+      <Form.TextField id="name" title="Bookmarklet Name" placeholder="My Bookmarklet" value={name} onChange={setName} />
       <Form.TextArea
         id="code"
         title="JavaScript Code"

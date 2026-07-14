@@ -25,7 +25,9 @@ function uuidV7(): string {
   // variant: 0b10
   bytes[8] = (bytes[8]! & 0x3f) | 0x80;
   // format
-  const hex = Array.from(bytes).map((b) => b.toString(16).padStart(2, "0")).join("");
+  const hex = Array.from(bytes)
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
   return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`;
 }
 
@@ -90,7 +92,13 @@ export default function UuidTool() {
         onChange={setInput}
       />
       {output && (
-        <Form.TextField id="output" title="Generated" value={output} onChange={setOutput} info="Use Copy to clipboard" />
+        <Form.TextField
+          id="output"
+          title="Generated"
+          value={output}
+          onChange={setOutput}
+          info="Use Copy to clipboard"
+        />
       )}
       {validation && <Form.Description text={validation} />}
     </Form>

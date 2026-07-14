@@ -13,7 +13,11 @@ const METHODS = [
   { name: "Array.includes()", sig: "(value, fromIndex?) => boolean", desc: "Value present?" },
   { name: "Array.indexOf()", sig: "(value, fromIndex?) => number", desc: "First index of value" },
   { name: "Array.slice()", sig: "(start, end?) => newArr", desc: "Shallow copy of portion" },
-  { name: "Array.splice()", sig: "(start, deleteCount?, items...) => removed", desc: "Remove/replace elements in place" },
+  {
+    name: "Array.splice()",
+    sig: "(start, deleteCount?, items...) => removed",
+    desc: "Remove/replace elements in place",
+  },
   { name: "Array.push()", sig: "(...items) => newLength", desc: "Add to end" },
   { name: "Array.pop()", sig: "() => lastElement", desc: "Remove from end" },
   { name: "Array.shift()", sig: "() => firstElement", desc: "Remove from start" },
@@ -48,13 +52,26 @@ const METHODS = [
 export default function JsMethodsRef() {
   const [search, setSearch] = useState("");
   const filtered = useMemo(
-    () => search.trim() ? METHODS.filter((m) => m.name.toLowerCase().includes(search.toLowerCase()) || m.desc.toLowerCase().includes(search.toLowerCase())) : METHODS,
-    [search]
+    () =>
+      search.trim()
+        ? METHODS.filter(
+            (m) =>
+              m.name.toLowerCase().includes(search.toLowerCase()) ||
+              m.desc.toLowerCase().includes(search.toLowerCase()),
+          )
+        : METHODS,
+    [search],
   );
 
   return (
     <Form>
-      <Form.TextField id="search" title="Search" placeholder="map, reduce, slice…" value={search} onChange={setSearch} />
+      <Form.TextField
+        id="search"
+        title="Search"
+        placeholder="map, reduce, slice…"
+        value={search}
+        onChange={setSearch}
+      />
       {filtered.map((m) => (
         <Form.Description key={m.name} title={`${m.name} → ${m.sig}`} text={m.desc} />
       ))}

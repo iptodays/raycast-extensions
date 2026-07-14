@@ -86,13 +86,7 @@ export default function SemverSort() {
         </ActionPanel>
       }
     >
-      <Form.TextArea
-        id="input"
-        title="Input"
-        placeholder={"1.0.0\n2.1.3\n1.9.9"}
-        value={input}
-        onChange={setInput}
-      />
+      <Form.TextArea id="input" title="Input" placeholder={"1.0.0\n2.1.3\n1.9.9"} value={input} onChange={setInput} />
       {output && <Form.TextArea id="output" title="Output" value={output} onChange={() => {}} />}
       {error && <Form.Description text={`⚠️ ${error}`} />}
     </Form>

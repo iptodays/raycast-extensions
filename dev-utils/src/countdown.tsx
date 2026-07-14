@@ -7,9 +7,15 @@ export default function Countdown() {
   const [error, setError] = useState("");
 
   const calculate = useCallback(() => {
-    if (!target.trim()) { setError("Please enter a target date/time"); return; }
+    if (!target.trim()) {
+      setError("Please enter a target date/time");
+      return;
+    }
     const d = new Date(target);
-    if (isNaN(d.getTime())) { setError("Invalid date — try ISO format: 2025-12-25 or 2025-12-25T09:00:00"); return; }
+    if (isNaN(d.getTime())) {
+      setError("Invalid date — try ISO format: 2025-12-25 or 2025-12-25T09:00:00");
+      return;
+    }
     setError("");
 
     const diff = d.getTime() - Date.now();
@@ -20,7 +26,9 @@ export default function Countdown() {
     const minutes = Math.floor((abs % 3600000) / 60000);
     const seconds = Math.floor((abs % 60000) / 1000);
 
-    setOutput(`Target: ${d.toLocaleString()}\n\n${sign}\n${days} days\n${hours} hours\n${minutes} minutes\n${seconds} seconds\n\n= ${((abs / 86400000) * 7).toFixed(1)} weeks\n= ${((abs / 86400000) * 30.44).toFixed(1)} months`);
+    setOutput(
+      `Target: ${d.toLocaleString()}\n\n${sign}\n${days} days\n${hours} hours\n${minutes} minutes\n${seconds} seconds\n\n= ${((abs / 86400000) * 7).toFixed(1)} weeks\n= ${((abs / 86400000) * 30.44).toFixed(1)} months`,
+    );
   }, [target]);
 
   const copy = useCallback(async () => {

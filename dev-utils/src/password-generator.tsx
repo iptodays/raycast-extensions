@@ -83,20 +83,8 @@ export default function PasswordGenerator() {
         </ActionPanel>
       }
     >
-      <Form.TextField
-        id="length"
-        title="Password Length"
-        placeholder="16"
-        value={length}
-        onChange={setLength}
-      />
-      <Form.TextField
-        id="count"
-        title="Number of Passwords"
-        placeholder="4"
-        value={count}
-        onChange={setCount}
-      />
+      <Form.TextField id="length" title="Password Length" placeholder="16" value={length} onChange={setLength} />
+      <Form.TextField id="count" title="Number of Passwords" placeholder="4" value={count} onChange={setCount} />
       <Form.Checkbox id="uppercase" label="Include Uppercase (A-Z)" value={uppercase} onChange={setUppercase} />
       <Form.Checkbox id="lowercase" label="Include Lowercase (a-z)" value={lowercase} onChange={setLowercase} />
       <Form.Checkbox id="digits" label="Include Digits (0-9)" value={digits} onChange={setDigits} />

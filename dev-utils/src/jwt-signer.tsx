@@ -35,7 +35,11 @@ export default function JwtSigner() {
       for (let i = 0; i < signature.length; i += 2) {
         sigBytes[i / 2] = parseInt(signature.slice(i, i + 2), 16);
       }
-      const encSig = base64UrlEncode(Array.from(sigBytes).map((b) => String.fromCodePoint(b)).join(""));
+      const encSig = base64UrlEncode(
+        Array.from(sigBytes)
+          .map((b) => String.fromCodePoint(b))
+          .join(""),
+      );
       const token = `${encHeader}.${encPayload}.${encSig}`;
       setOutput(token);
       showToast(Toast.Style.Success, "JWT signed");

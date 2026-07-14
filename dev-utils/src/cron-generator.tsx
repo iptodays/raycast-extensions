@@ -10,11 +10,17 @@ function buildCron(parts: string[]): string {
 const EVERY = ["*", "*/1", "*/2", "*/5", "*/10", "*/15", "*/30"];
 const HOURS = Array.from({ length: 24 }, (_, i) => String(i));
 const DAYS = Array.from({ length: 31 }, (_, i) => String(i + 1));
-const MONTHS = Array.from({ length: 12 }, (_, i) => ({ value: String(i + 1), label: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][i]! }));
+const MONTHS = Array.from({ length: 12 }, (_, i) => ({
+  value: String(i + 1),
+  label: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"][i]!,
+}));
 const DOWS = [
-  { value: "0", label: "Sunday" }, { value: "1", label: "Monday" },
-  { value: "2", label: "Tuesday" }, { value: "3", label: "Wednesday" },
-  { value: "4", label: "Thursday" }, { value: "5", label: "Friday" },
+  { value: "0", label: "Sunday" },
+  { value: "1", label: "Monday" },
+  { value: "2", label: "Tuesday" },
+  { value: "3", label: "Wednesday" },
+  { value: "4", label: "Thursday" },
+  { value: "5", label: "Friday" },
   { value: "6", label: "Saturday" },
 ];
 
@@ -64,24 +70,36 @@ export default function CronGenerator() {
       }
     >
       <Form.Dropdown id="minute" title="Minute" value={minute} onChange={setMinute}>
-        {EVERY.map((v) => <Form.Dropdown.Item key={v} value={v} title={v === "*" ? "Every minute" : `Every ${v.slice(2)} min`} />)}
-        {Array.from({length:60},(_,i)=><Form.Dropdown.Item key={i} value={String(i)} title={`At minute ${i}`} />)}
+        {EVERY.map((v) => (
+          <Form.Dropdown.Item key={v} value={v} title={v === "*" ? "Every minute" : `Every ${v.slice(2)} min`} />
+        ))}
+        {Array.from({ length: 60 }, (_, i) => (
+          <Form.Dropdown.Item key={i} value={String(i)} title={`At minute ${i}`} />
+        ))}
       </Form.Dropdown>
       <Form.Dropdown id="hour" title="Hour" value={hour} onChange={setHour}>
         <Form.Dropdown.Item value="*" title="Every hour" />
-        {Array.from({length:24},(_,i)=><Form.Dropdown.Item key={i} value={String(i)} title={`${String(i).padStart(2,"0")}:00`} />)}
+        {Array.from({ length: 24 }, (_, i) => (
+          <Form.Dropdown.Item key={i} value={String(i)} title={`${String(i).padStart(2, "0")}:00`} />
+        ))}
       </Form.Dropdown>
       <Form.Dropdown id="dom" title="Day of Month" value={dom} onChange={setDom}>
         <Form.Dropdown.Item value="*" title="Every day" />
-        {Array.from({length:31},(_,i)=><Form.Dropdown.Item key={i+1} value={String(i+1)} title={`Day ${i+1}`} />)}
+        {Array.from({ length: 31 }, (_, i) => (
+          <Form.Dropdown.Item key={i + 1} value={String(i + 1)} title={`Day ${i + 1}`} />
+        ))}
       </Form.Dropdown>
       <Form.Dropdown id="month" title="Month" value={month} onChange={setMonth}>
         <Form.Dropdown.Item value="*" title="Every month" />
-        {MONTHS.map((m) => <Form.Dropdown.Item key={m.value} value={m.value} title={m.label} />)}
+        {MONTHS.map((m) => (
+          <Form.Dropdown.Item key={m.value} value={m.value} title={m.label} />
+        ))}
       </Form.Dropdown>
       <Form.Dropdown id="dow" title="Day of Week" value={dow} onChange={setDow}>
         <Form.Dropdown.Item value="*" title="Every day" />
-        {DOWS.map((d) => <Form.Dropdown.Item key={d.value} value={d.value} title={d.label} />)}
+        {DOWS.map((d) => (
+          <Form.Dropdown.Item key={d.value} value={d.value} title={d.label} />
+        ))}
       </Form.Dropdown>
 
       {output && (

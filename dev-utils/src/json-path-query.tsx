@@ -24,7 +24,10 @@ export default function JsonPathQuery() {
   const [error, setError] = useState("");
 
   const query = useCallback(() => {
-    if (!json.trim() || !path.trim()) { setError("Please enter JSON and a path"); return; }
+    if (!json.trim() || !path.trim()) {
+      setError("Please enter JSON and a path");
+      return;
+    }
     try {
       const obj = JSON.parse(json);
       const result = get(obj, path);
@@ -50,8 +53,20 @@ export default function JsonPathQuery() {
         </ActionPanel>
       }
     >
-      <Form.TextArea id="json" title="JSON" placeholder='{"users":[{"name":"Alice"}]}' value={json} onChange={setJson} />
-      <Form.TextField id="path" title="Path (dot notation)" placeholder="users.0.name" value={path} onChange={setPath} />
+      <Form.TextArea
+        id="json"
+        title="JSON"
+        placeholder='{"users":[{"name":"Alice"}]}'
+        value={json}
+        onChange={setJson}
+      />
+      <Form.TextField
+        id="path"
+        title="Path (dot notation)"
+        placeholder="users.0.name"
+        value={path}
+        onChange={setPath}
+      />
       {output && <Form.TextArea id="output" title="Result" value={output} onChange={() => {}} />}
       {error && <Form.Description text={`⚠️ ${error}`} />}
     </Form>

@@ -74,7 +74,12 @@ export default function FractionDecimal() {
         </ActionPanel>
       }
     >
-      <Form.Dropdown id="direction" title="Direction" value={direction} onChange={(v) => setDirection(v as "frac-dec" | "dec-frac")}>
+      <Form.Dropdown
+        id="direction"
+        title="Direction"
+        value={direction}
+        onChange={(v) => setDirection(v as "frac-dec" | "dec-frac")}
+      >
         <Form.Dropdown.Item value="frac-dec" title="Fraction → Decimal" />
         <Form.Dropdown.Item value="dec-frac" title="Decimal → Fraction" />
       </Form.Dropdown>

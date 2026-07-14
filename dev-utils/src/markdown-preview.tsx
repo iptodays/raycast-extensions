@@ -20,11 +20,7 @@ export default function MarkdownPreview() {
         <ActionPanel>
           {input && (
             <>
-              <Action
-                title="Copy Markdown"
-                icon={Icon.Clipboard}
-                onAction={copyHtml}
-              />
+              <Action title="Copy Markdown" icon={Icon.Clipboard} onAction={copyHtml} />
               <Action.OpenInBrowser
                 title="Preview in Browser"
                 icon={Icon.Globe}

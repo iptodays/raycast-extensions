@@ -53,20 +53,8 @@ export default function SearchFilterTool() {
         </ActionPanel>
       }
     >
-      <Form.TextArea
-        id="text"
-        title="Text"
-        placeholder="Lines to search…"
-        value={text}
-        onChange={setText}
-      />
-      <Form.TextField
-        id="query"
-        title="Search"
-        placeholder="Term or pattern…"
-        value={query}
-        onChange={setQuery}
-      />
+      <Form.TextArea id="text" title="Text" placeholder="Lines to search…" value={text} onChange={setText} />
+      <Form.TextField id="query" title="Search" placeholder="Term or pattern…" value={query} onChange={setQuery} />
       <Form.Checkbox id="regex" label="Use Regex" value={regex} onChange={setRegex} />
       {output && (
         <>

@@ -9,18 +9,23 @@ export default function PhoneFormatter() {
 
   const format = useCallback(() => {
     const digits = input.replace(/\D/g, "");
-    if (digits.length < 7) { setError("Need at least 7 digits"); return; }
+    if (digits.length < 7) {
+      setError("Need at least 7 digits");
+      return;
+    }
     setError("");
 
     switch (country) {
       case "us":
         if (digits.length === 10) setOutput(`(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`);
-        else if (digits.length === 11 && digits.startsWith("1")) setOutput(`+1 (${digits.slice(1, 4)}) ${digits.slice(4, 7)}-${digits.slice(7)}`);
+        else if (digits.length === 11 && digits.startsWith("1"))
+          setOutput(`+1 (${digits.slice(1, 4)}) ${digits.slice(4, 7)}-${digits.slice(7)}`);
         else setOutput(digits);
         break;
       case "cn":
         if (digits.length === 11) setOutput(`${digits.slice(0, 3)} ${digits.slice(3, 7)} ${digits.slice(7)}`);
-        else if (digits.length === 12 && digits.startsWith("86")) setOutput(`+86 ${digits.slice(2, 5)} ${digits.slice(5, 9)} ${digits.slice(9)}`);
+        else if (digits.length === 12 && digits.startsWith("86"))
+          setOutput(`+86 ${digits.slice(2, 5)} ${digits.slice(5, 9)} ${digits.slice(9)}`);
         else setOutput(digits);
         break;
       case "uk":

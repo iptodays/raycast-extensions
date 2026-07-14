@@ -8,7 +8,10 @@ export default function SqlInsertGen() {
   const [error, setError] = useState("");
 
   const generate = useCallback(() => {
-    if (!input.trim()) { setError("Please enter data (JSON array or CSV)"); return; }
+    if (!input.trim()) {
+      setError("Please enter data (JSON array or CSV)");
+      return;
+    }
 
     let rows: Record<string, string>[] = [];
     try {
@@ -17,22 +20,28 @@ export default function SqlInsertGen() {
     } catch {
       // Try CSV
       const lines = input.split("\n").filter(Boolean);
-      if (lines.length < 2) { setError("Need at least a header row and data"); return; }
+      if (lines.length < 2) {
+        setError("Need at least a header row and data");
+        return;
+      }
       const headers = lines[0]!.split(",").map((h) => h.trim());
       rows = lines.slice(1).map((l) => {
         const vals = l.split(",");
         const obj: Record<string, string> = {};
-        headers.forEach((h, i) => { obj[h] = (vals[i] || "").trim(); });
+        headers.forEach((h, i) => {
+          obj[h] = (vals[i] || "").trim();
+        });
         return obj;
       });
     }
 
-    if (rows.length === 0) { setError("No data rows found"); return; }
+    if (rows.length === 0) {
+      setError("No data rows found");
+      return;
+    }
 
     const columns = Object.keys(rows[0]!);
-    const values = rows.map((r) =>
-      `(${columns.map((c) => `'${(r[c] || "").replace(/'/g, "''")}'`).join(", ")})`
-    );
+    const values = rows.map((r) => `(${columns.map((c) => `'${(r[c] || "").replace(/'/g, "''")}'`).join(", ")})`);
 
     setError("");
     setOutput(`INSERT INTO ${table} (${columns.join(", ")})\nVALUES\n  ${values.join(",\n  ")};\n`);
@@ -54,7 +63,13 @@ export default function SqlInsertGen() {
       }
     >
       <Form.TextField id="table" title="Table Name" placeholder="users" value={table} onChange={setTable} />
-      <Form.TextArea id="input" title="Data (JSON | CSV)" placeholder='[{"name":"Alice","age":"30"}]' value={input} onChange={setInput} />
+      <Form.TextArea
+        id="input"
+        title="Data (JSON | CSV)"
+        placeholder='[{"name":"Alice","age":"30"}]'
+        value={input}
+        onChange={setInput}
+      />
       {output && <Form.TextArea id="output" title="SQL" value={output} onChange={() => {}} />}
       {error && <Form.Description text={`⚠️ ${error}`} />}
     </Form>

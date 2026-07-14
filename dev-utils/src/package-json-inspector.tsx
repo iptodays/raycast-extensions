@@ -7,7 +7,10 @@ export default function PackageJsonInspector() {
   const [error, setError] = useState("");
 
   const inspect = useCallback(() => {
-    if (!input.trim()) { setError("Please enter package.json content"); return; }
+    if (!input.trim()) {
+      setError("Please enter package.json content");
+      return;
+    }
     try {
       const pkg = JSON.parse(input);
       const problems: string[] = [];
@@ -58,7 +61,13 @@ export default function PackageJsonInspector() {
         </ActionPanel>
       }
     >
-      <Form.TextArea id="input" title="package.json" placeholder='{"name":"my-app","version":"1.0.0"}' value={input} onChange={setInput} />
+      <Form.TextArea
+        id="input"
+        title="package.json"
+        placeholder='{"name":"my-app","version":"1.0.0"}'
+        value={input}
+        onChange={setInput}
+      />
       {output && <Form.TextArea id="output" title="Inspection" value={output} onChange={() => {}} />}
       {error && <Form.Description text={`⚠️ ${error}`} />}
     </Form>

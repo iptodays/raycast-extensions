@@ -3,9 +3,7 @@ import { Form, ActionPanel, Action, Clipboard, showToast, Toast, Icon } from "@r
 
 function evaluate(expr: string): string {
   // Sanitize: only allow math characters
-  const sanitized = expr
-    .replace(/\s/g, "")
-    .replace(/[^0-9+\-*/.()%^,]/g, "");
+  const sanitized = expr.replace(/\s/g, "").replace(/[^0-9+\-*/.()%^,]/g, "");
 
   if (!sanitized) return "";
 
@@ -59,13 +57,7 @@ export default function MathEval() {
         </ActionPanel>
       }
     >
-      <Form.TextField
-        id="input"
-        title="Expression"
-        placeholder="2 + 2 * (3^2 + 1)"
-        value={input}
-        onChange={setInput}
-      />
+      <Form.TextField id="input" title="Expression" placeholder="2 + 2 * (3^2 + 1)" value={input} onChange={setInput} />
       {output && <Form.TextField id="output" title="Result" value={output.split(" = ")[1]!} onChange={() => {}} />}
       {error && <Form.Description text={`⚠️ ${error}`} />}
     </Form>

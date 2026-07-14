@@ -8,11 +8,11 @@ function dmsToDecimal(deg: number, min: number, sec: number, dir: string): numbe
 }
 
 function decimalToDMS(dec: number, isLat: boolean): string {
-  const dir = isLat ? (dec >= 0 ? "N" : "S") : (dec >= 0 ? "E" : "W");
+  const dir = isLat ? (dec >= 0 ? "N" : "S") : dec >= 0 ? "E" : "W";
   const abs = Math.abs(dec);
   const deg = Math.floor(abs);
   const min = Math.floor((abs - deg) * 60);
-  const sec = ((abs - deg - min / 60) * 3600);
+  const sec = (abs - deg - min / 60) * 3600;
   return `${deg}°${min}'${sec.toFixed(2)}"${dir}`;
 }
 
@@ -79,7 +79,12 @@ export default function LatLongTool() {
         </ActionPanel>
       }
     >
-      <Form.Dropdown id="direction" title="Direction" value={direction} onChange={(v) => setDirection(v as "dms" | "dec")}>
+      <Form.Dropdown
+        id="direction"
+        title="Direction"
+        value={direction}
+        onChange={(v) => setDirection(v as "dms" | "dec")}
+      >
         <Form.Dropdown.Item value="dec" title="Decimal → DMS" />
         <Form.Dropdown.Item value="dms" title="DMS → Decimal" />
       </Form.Dropdown>

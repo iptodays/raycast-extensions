@@ -46,10 +46,10 @@ export default function RegexSyntaxRef() {
             (i) =>
               i.title.toLowerCase().includes(search.toLowerCase()) ||
               i.pattern.toLowerCase().includes(search.toLowerCase()) ||
-              i.description.toLowerCase().includes(search.toLowerCase())
+              i.description.toLowerCase().includes(search.toLowerCase()),
           )
         : ITEMS,
-    [search]
+    [search],
   );
 
   return (

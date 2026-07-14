@@ -75,13 +75,7 @@ export default function CaesarCipher() {
       }
     >
       <Form.TextField id="shift" title="Shift" placeholder="13" value={shift} onChange={setShift} />
-      <Form.TextArea
-        id="input"
-        title="Text"
-        placeholder="Hello, World!"
-        value={input}
-        onChange={setInput}
-      />
+      <Form.TextArea id="input" title="Text" placeholder="Hello, World!" value={input} onChange={setInput} />
       {output && <Form.TextArea id="output" title="Output" value={output} onChange={() => {}} />}
       {error && <Form.Description text={`⚠️ ${error}`} />}
     </Form>

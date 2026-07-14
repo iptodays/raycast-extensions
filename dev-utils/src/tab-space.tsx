@@ -38,7 +38,12 @@ export default function TabSpaceTool() {
         </ActionPanel>
       }
     >
-      <Form.Dropdown id="direction" title="Direction" value={direction} onChange={(v) => setDirection(v as "tabs" | "spaces")}>
+      <Form.Dropdown
+        id="direction"
+        title="Direction"
+        value={direction}
+        onChange={(v) => setDirection(v as "tabs" | "spaces")}
+      >
         <Form.Dropdown.Item value="spaces" title="Tabs → Spaces" />
         <Form.Dropdown.Item value="tabs" title="Spaces → Tabs" />
       </Form.Dropdown>

@@ -68,7 +68,7 @@ export default function ColorContrast() {
         `AA Normal:      ${ratio >= 4.5 ? "✓ PASS" : "✗ FAIL"} (≥ 4.5:1)`,
         `AA Large:       ${ratio >= 3 ? "✓ PASS" : "✗ FAIL"} (≥ 3:1)`,
         `AAA Normal:     ${ratio >= 7 ? "✓ PASS" : "✗ FAIL"} (≥ 7:1)`,
-      ].join("\n")
+      ].join("\n"),
     );
   }, [fg, bg]);
 

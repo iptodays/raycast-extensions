@@ -15,7 +15,13 @@ export default function UnixPermsRef() {
   const [search, setSearch] = useState("");
   return (
     <Form>
-      <Form.TextField id="search" title="Search" placeholder="SUID, sticky, octal…" value={search} onChange={setSearch} />
+      <Form.TextField
+        id="search"
+        title="Search"
+        placeholder="SUID, sticky, octal…"
+        value={search}
+        onChange={setSearch}
+      />
       {ITEMS.map((i) => (
         <Form.Description key={i.symbol} title={`${i.symbol} (${i.octal})`} text={i.desc} />
       ))}

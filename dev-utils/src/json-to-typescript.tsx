@@ -30,7 +30,9 @@ function generateInterface(obj: unknown, name: string, indent: number): string {
         return `${pad}  ${propName}: ${generateInterface(val, "", indent + 1).trim()}`;
       }
       if (Array.isArray(val)) {
-        return `${pad}  ${propName}: ${generateInterface(val, "", indent + 1).trim().replace(/^[^:]*:\s*/, "")}`;
+        return `${pad}  ${propName}: ${generateInterface(val, "", indent + 1)
+          .trim()
+          .replace(/^[^:]*:\s*/, "")}`;
       }
       return `${pad}  ${propName}: ${getTypeName(val)};`;
     });

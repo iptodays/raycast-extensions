@@ -2,17 +2,7 @@ import { useState, useCallback } from "react";
 import { Form, ActionPanel, Action, showToast, Toast, Icon } from "@raycast/api";
 
 type CaseType =
-  | "camel"
-  | "pascal"
-  | "snake"
-  | "kebab"
-  | "upper"
-  | "lower"
-  | "title"
-  | "sentence"
-  | "dot"
-  | "constant"
-  | "swap";
+  "camel" | "pascal" | "snake" | "kebab" | "upper" | "lower" | "title" | "sentence" | "dot" | "constant" | "swap";
 
 function toWords(text: string): string[] {
   return text
@@ -98,13 +88,7 @@ export default function CaseConverter() {
         onChange={setInput}
       />
       {results.map((r) => (
-        <Form.TextField
-          key={r.label}
-          id={r.label}
-          title={r.label}
-          value={r.value}
-          onChange={() => {}}
-        />
+        <Form.TextField key={r.label} id={r.label} title={r.label} value={r.value} onChange={() => {}} />
       ))}
     </Form>
   );

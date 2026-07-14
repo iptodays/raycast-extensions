@@ -86,17 +86,16 @@ export default function Ieee754Tool() {
         </ActionPanel>
       }
     >
-      <Form.Dropdown id="precision" title="Precision" value={precision} onChange={(v) => setPrecision(v as "single" | "double")}>
+      <Form.Dropdown
+        id="precision"
+        title="Precision"
+        value={precision}
+        onChange={(v) => setPrecision(v as "single" | "double")}
+      >
         <Form.Dropdown.Item value="single" title="Single (32-bit)" />
         <Form.Dropdown.Item value="double" title="Double (64-bit)" />
       </Form.Dropdown>
-      <Form.TextField
-        id="input"
-        title="Decimal"
-        placeholder="3.14159"
-        value={input}
-        onChange={setInput}
-      />
+      <Form.TextField id="input" title="Decimal" placeholder="3.14159" value={input} onChange={setInput} />
       {output && <Form.TextArea id="output" title="IEEE 754" value={output} onChange={() => {}} />}
       {error && <Form.Description text={`⚠️ ${error}`} />}
     </Form>

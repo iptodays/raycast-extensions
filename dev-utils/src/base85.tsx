@@ -1,8 +1,7 @@
 import { useState, useCallback } from "react";
 import { Form, ActionPanel, Action, Clipboard, showToast, Toast, Icon } from "@raycast/api";
 
-const BASE85_ALPH =
-  "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
+const BASE85_ALPH = "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
 
 function base85Encode(text: string): string {
   const bytes = new TextEncoder().encode(text);
@@ -90,7 +89,12 @@ export default function Base85Tool() {
         </ActionPanel>
       }
     >
-      <Form.Dropdown id="direction" title="Direction" value={direction} onChange={(v) => setDirection(v as "encode" | "decode")}>
+      <Form.Dropdown
+        id="direction"
+        title="Direction"
+        value={direction}
+        onChange={(v) => setDirection(v as "encode" | "decode")}
+      >
         <Form.Dropdown.Item value="encode" title="Text → ASCII85" />
         <Form.Dropdown.Item value="decode" title="ASCII85 → Text" />
       </Form.Dropdown>

@@ -53,11 +53,15 @@ export default function ImageToBase64() {
         <ActionPanel>
           <ActionPanel.Section title="Actions">
             <Action title="Text → Base64" icon={Icon.Lock} onAction={encodeFromUrl} />
-            <Action title="Strip Data-URI Prefix" icon={Icon.Code} onAction={() => {
-              const s = input.trim().replace(/^data:image\/[^;]+;base64,/, "");
-              setOutput(s);
-              showToast(Toast.Style.Success, "Prefix stripped");
-            }} />
+            <Action
+              title="Strip Data-URI Prefix"
+              icon={Icon.Code}
+              onAction={() => {
+                const s = input.trim().replace(/^data:image\/[^;]+;base64,/, "");
+                setOutput(s);
+                showToast(Toast.Style.Success, "Prefix stripped");
+              }}
+            />
           </ActionPanel.Section>
           {output && <Action title="Copy Output" icon={Icon.Clipboard} onAction={copy} />}
         </ActionPanel>

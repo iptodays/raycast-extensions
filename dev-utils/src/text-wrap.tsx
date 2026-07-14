@@ -7,16 +7,25 @@ export default function TextWrap() {
   const [output, setOutput] = useState("");
 
   const wrap = useCallback(() => {
-    if (!input.trim()) { showToast(Toast.Style.Failure, "Please enter text"); return; }
+    if (!input.trim()) {
+      showToast(Toast.Style.Failure, "Please enter text");
+      return;
+    }
     const w = parseInt(width, 10) || 80;
     const lines: string[] = [];
     for (const para of input.split("\n\n")) {
       const words = para.split(/\s+/).filter(Boolean);
       let line = "";
       for (const word of words) {
-        if (!line) { line = word; continue; }
+        if (!line) {
+          line = word;
+          continue;
+        }
         if ((line + " " + word).length <= w) line += " " + word;
-        else { lines.push(line); line = word; }
+        else {
+          lines.push(line);
+          line = word;
+        }
       }
       if (line) lines.push(line);
       lines.push("");
@@ -25,7 +34,10 @@ export default function TextWrap() {
   }, [input, width]);
 
   const justify = useCallback(() => {
-    if (!input.trim()) { showToast(Toast.Style.Failure, "Please enter text"); return; }
+    if (!input.trim()) {
+      showToast(Toast.Style.Failure, "Please enter text");
+      return;
+    }
     const w = parseInt(width, 10) || 80;
     const lines: string[] = [];
     for (const para of input.split("\n\n")) {
@@ -33,7 +45,10 @@ export default function TextWrap() {
       let lineWords: string[] = [];
       for (const word of words) {
         const testLine = [...lineWords, word].join(" ");
-        if (testLine.length <= w) { lineWords.push(word); continue; }
+        if (testLine.length <= w) {
+          lineWords.push(word);
+          continue;
+        }
         const spaces = lineWords.length > 1 ? w - lineWords.join("").length : 0;
         const gaps = lineWords.length - 1;
         if (gaps === 0) lines.push(lineWords[0]!);

@@ -2,7 +2,20 @@ import { useState, useCallback } from "react";
 import { Form, ActionPanel, Action, Clipboard, showToast, Toast, Icon } from "@raycast/api";
 
 const DOW = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const MONTHS = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 
 function describeField(value: string, min: number, max: number, names: string[]): string {
   if (value === "*") return "every";
@@ -11,10 +24,13 @@ function describeField(value: string, min: number, max: number, names: string[])
     return `every ${step} (${min}–${max})`;
   }
   if (value.includes(",")) {
-    return value.split(",").map((v) => {
-      const n = parseInt(v, 10);
-      return names[n] || String(n);
-    }).join(", ");
+    return value
+      .split(",")
+      .map((v) => {
+        const n = parseInt(v, 10);
+        return names[n] || String(n);
+      })
+      .join(", ");
   }
   if (value.includes("-")) {
     const [a, b] = value.split("-").map(Number);
@@ -83,13 +99,7 @@ export default function CronParser() {
         </ActionPanel>
       }
     >
-      <Form.TextField
-        id="input"
-        title="Cron Expression"
-        placeholder="*/5 * * * *"
-        value={input}
-        onChange={setInput}
-      />
+      <Form.TextField id="input" title="Cron Expression" placeholder="*/5 * * * *" value={input} onChange={setInput} />
       {output && <Form.TextArea id="output" title="Result" value={output} onChange={() => {}} />}
       {error && <Form.Description text={`⚠️ ${error}`} />}
     </Form>

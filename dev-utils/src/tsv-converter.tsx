@@ -20,7 +20,9 @@ function tsvToJson(tsv: string): string {
   const { headers, rows } = parseTSV(tsv);
   const data = rows.map((r) => {
     const obj: Record<string, string> = {};
-    headers.forEach((h, i) => { obj[h] = r[i] || ""; });
+    headers.forEach((h, i) => {
+      obj[h] = r[i] || "";
+    });
     return obj;
   });
   return JSON.stringify(data, null, 2);

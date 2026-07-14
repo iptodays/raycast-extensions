@@ -53,25 +53,17 @@ export default function RegexTester() {
         <ActionPanel>
           <Action title="Test Regex" icon={Icon.ArrowRight} onAction={test} />
           {matches.length > 0 && (
-            <Action title="Copy Matches" icon={Icon.Clipboard} onAction={() => copy(matches.map((m) => m.value).join("\n"))} />
+            <Action
+              title="Copy Matches"
+              icon={Icon.Clipboard}
+              onAction={() => copy(matches.map((m) => m.value).join("\n"))}
+            />
           )}
         </ActionPanel>
       }
     >
-      <Form.TextField
-        id="pattern"
-        title="Pattern"
-        placeholder="\\d{4}"
-        value={pattern}
-        onChange={setPattern}
-      />
-      <Form.TextField
-        id="flags"
-        title="Flags"
-        placeholder="gm"
-        value={flags}
-        onChange={setFlags}
-      />
+      <Form.TextField id="pattern" title="Pattern" placeholder="\\d{4}" value={pattern} onChange={setPattern} />
+      <Form.TextField id="flags" title="Flags" placeholder="gm" value={flags} onChange={setFlags} />
       <Form.TextArea
         id="text"
         title="Test Text"

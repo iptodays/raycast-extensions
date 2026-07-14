@@ -10,9 +10,7 @@ function textToBinary(text: string): string {
 function binaryToText(binary: string): string {
   const cleaned = binary.replace(/\s+/g, " ");
   const bytes = cleaned.split(" ");
-  return bytes
-    .map((b) => String.fromCodePoint(parseInt(b, 2)))
-    .join("");
+  return bytes.map((b) => String.fromCodePoint(parseInt(b, 2))).join("");
 }
 
 function textToHex(text: string): string {
@@ -24,9 +22,7 @@ function textToHex(text: string): string {
 function hexToText(hex: string): string {
   const cleaned = hex.replace(/\s+/g, "");
   const bytes = cleaned.match(/.{2}/g) || [];
-  return bytes
-    .map((b) => String.fromCodePoint(parseInt(b, 16)))
-    .join("");
+  return bytes.map((b) => String.fromCodePoint(parseInt(b, 16))).join("");
 }
 
 export default function TextToBinary() {
@@ -68,7 +64,12 @@ export default function TextToBinary() {
         </ActionPanel>
       }
     >
-      <Form.Dropdown id="direction" title="Direction" value={direction} onChange={(v) => setDirection(v as "encode" | "decode")}>
+      <Form.Dropdown
+        id="direction"
+        title="Direction"
+        value={direction}
+        onChange={(v) => setDirection(v as "encode" | "decode")}
+      >
         <Form.Dropdown.Item value="encode" title="Text → Binary/Hex" />
         <Form.Dropdown.Item value="decode" title="Binary/Hex → Text" />
       </Form.Dropdown>

@@ -64,13 +64,7 @@ export default function CssUnitTool() {
       <Form.TextField id="base" title="Base Font Size (px)" placeholder="16" value={base} onChange={setBase} />
       {results.length > 0 &&
         results.map((r) => (
-          <Form.TextField
-            key={r.label}
-            id={r.label}
-            title={r.label}
-            value={r.value}
-            onChange={() => {}}
-          />
+          <Form.TextField key={r.label} id={r.label} title={r.label} value={r.value} onChange={() => {}} />
         ))}
       {error && <Form.Description text={`⚠️ ${error}`} />}
     </Form>

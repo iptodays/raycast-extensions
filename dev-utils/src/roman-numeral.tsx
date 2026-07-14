@@ -2,9 +2,19 @@ import { useState, useCallback } from "react";
 import { Form, ActionPanel, Action, Clipboard, showToast, Toast, Icon } from "@raycast/api";
 
 const ROMAN_MAP: [number, string][] = [
-  [1000, "M"], [900, "CM"], [500, "D"], [400, "CD"],
-  [100, "C"], [90, "XC"], [50, "L"], [40, "XL"],
-  [10, "X"], [9, "IX"], [5, "V"], [4, "IV"], [1, "I"],
+  [1000, "M"],
+  [900, "CM"],
+  [500, "D"],
+  [400, "CD"],
+  [100, "C"],
+  [90, "XC"],
+  [50, "L"],
+  [40, "XL"],
+  [10, "X"],
+  [9, "IX"],
+  [5, "V"],
+  [4, "IV"],
+  [1, "I"],
 ];
 
 function toRoman(num: number): string {
@@ -27,7 +37,10 @@ function fromRoman(roman: string): number {
   for (let i = roman.length - 1; i >= 0; i--) {
     const cur = values[roman[i]!] ?? 0;
     if (cur < prev) total -= cur;
-    else { total += cur; prev = cur; }
+    else {
+      total += cur;
+      prev = cur;
+    }
   }
   return total;
 }
@@ -75,13 +88,7 @@ export default function RomanNumeralTool() {
         </ActionPanel>
       }
     >
-      <Form.TextField
-        id="input"
-        title="Input"
-        placeholder="42 or XLII"
-        value={input}
-        onChange={setInput}
-      />
+      <Form.TextField id="input" title="Input" placeholder="42 or XLII" value={input} onChange={setInput} />
       {output && <Form.TextField id="output" title="Result" value={output} onChange={() => {}} />}
       {error && <Form.Description text={`⚠️ ${error}`} />}
     </Form>

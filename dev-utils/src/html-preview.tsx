@@ -17,11 +17,7 @@ export default function HtmlPreview() {
         <ActionPanel>
           {input && (
             <>
-              <Action
-                title="Copy HTML"
-                icon={Icon.Clipboard}
-                onAction={copy}
-              />
+              <Action title="Copy HTML" icon={Icon.Clipboard} onAction={copy} />
               <Action.OpenInBrowser
                 title="Preview in Browser"
                 icon={Icon.Globe}

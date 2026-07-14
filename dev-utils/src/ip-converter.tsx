@@ -8,12 +8,7 @@ function ipToInt(ip: string): number | null {
 }
 
 function intToIp(n: number): string {
-  return [
-    (n >>> 24) & 255,
-    (n >>> 16) & 255,
-    (n >>> 8) & 255,
-    n & 255,
-  ].join(".");
+  return [(n >>> 24) & 255, (n >>> 16) & 255, (n >>> 8) & 255, n & 255].join(".");
 }
 
 export default function IpConverter() {
@@ -36,7 +31,9 @@ export default function IpConverter() {
         return;
       }
       setError("");
-      setOutput(`IPv4: ${trimmed}\nHex:  0x${int.toString(16).toUpperCase().padStart(8, "0")}\nInt:  ${int}\nBin:  ${int.toString(2).padStart(32, "0")}`);
+      setOutput(
+        `IPv4: ${trimmed}\nHex:  0x${int.toString(16).toUpperCase().padStart(8, "0")}\nInt:  ${int}\nBin:  ${int.toString(2).padStart(32, "0")}`,
+      );
       return;
     }
 

@@ -15,11 +15,13 @@ function sortLines(text: string, mode: SortMode): string {
       return [...lines].sort((a, b) => a.length - b.length).join("\n");
     case "unique": {
       const seen = new Set<string>();
-      return lines.filter((l) => {
-        if (seen.has(l)) return false;
-        seen.add(l);
-        return true;
-      }).join("\n");
+      return lines
+        .filter((l) => {
+          if (seen.has(l)) return false;
+          seen.add(l);
+          return true;
+        })
+        .join("\n");
     }
     case "shuffle": {
       const arr = [...lines];
@@ -30,9 +32,9 @@ function sortLines(text: string, mode: SortMode): string {
       return arr.join("\n");
     }
     case "natural":
-      return [...lines].sort((a, b) =>
-        a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" })
-      ).join("\n");
+      return [...lines]
+        .sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" }))
+        .join("\n");
   }
 }
 
@@ -78,13 +80,7 @@ export default function TextSort() {
           <Form.Dropdown.Item key={m.value} value={m.value} title={m.label} />
         ))}
       </Form.Dropdown>
-      <Form.TextArea
-        id="input"
-        title="Input"
-        placeholder="One item per line…"
-        value={input}
-        onChange={setInput}
-      />
+      <Form.TextArea id="input" title="Input" placeholder="One item per line…" value={input} onChange={setInput} />
       {output && <Form.TextArea id="output" title="Sorted" value={output} onChange={() => {}} />}
     </Form>
   );

@@ -17,19 +17,9 @@ function explainCIDR(cidr: string): string {
   const network = ipInt & mask;
   const broadcast = network | ~mask;
 
-  const toIP = (n: number) => [
-    (n >>> 24) & 255,
-    (n >>> 16) & 255,
-    (n >>> 8) & 255,
-    n & 255,
-  ].join(".");
+  const toIP = (n: number) => [(n >>> 24) & 255, (n >>> 16) & 255, (n >>> 8) & 255, n & 255].join(".");
 
-  const maskOctets = [
-    (mask >>> 24) & 255,
-    (mask >>> 16) & 255,
-    (mask >>> 8) & 255,
-    mask & 255,
-  ];
+  const maskOctets = [(mask >>> 24) & 255, (mask >>> 16) & 255, (mask >>> 8) & 255, mask & 255];
 
   const total = 2 ** (32 - bits);
   const usable = total >= 2 ? total - 2 : total;
@@ -80,13 +70,7 @@ export default function IpCalculator() {
         </ActionPanel>
       }
     >
-      <Form.TextField
-        id="input"
-        title="CIDR Notation"
-        placeholder="192.168.1.0/24"
-        value={input}
-        onChange={setInput}
-      />
+      <Form.TextField id="input" title="CIDR Notation" placeholder="192.168.1.0/24" value={input} onChange={setInput} />
       {output && <Form.TextArea id="output" title="Result" value={output} onChange={() => {}} />}
       {error && <Form.Description text={`⚠️ ${error}`} />}
     </Form>

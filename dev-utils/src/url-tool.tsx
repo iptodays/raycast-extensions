@@ -52,7 +52,7 @@ export default function UrlTool() {
           `Pathname: ${u.pathname}`,
           `Hash: ${u.hash || "(none)"}`,
           params.length ? `Query params:\n${params.join("\n")}` : "Query: (none)",
-        ].join("\n")
+        ].join("\n"),
       );
     } catch {
       setError("Invalid URL");

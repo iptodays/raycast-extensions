@@ -155,10 +155,10 @@ export default function NamedColors() {
             ([name, hex, rgb]) =>
               name.toLowerCase().includes(search.toLowerCase()) ||
               hex.toLowerCase().includes(search.toLowerCase()) ||
-              rgb.includes(search)
+              rgb.includes(search),
           )
         : ALL_COLORS,
-    [search]
+    [search],
   );
 
   return (
@@ -179,19 +179,11 @@ export default function NamedColors() {
         </ActionPanel>
       }
     >
-      <Form.TextField
-        id="search"
-        title="Search"
-        placeholder="Name, hex, or RGB…"
-        value={search}
-        onChange={setSearch}
-      />
+      <Form.TextField id="search" title="Search" placeholder="Name, hex, or RGB…" value={search} onChange={setSearch} />
       {filtered.slice(0, 50).map(([name, hex, rgb]) => (
         <Form.Description key={name} title={name} text={`${hex}  (${rgb})`} />
       ))}
-      {filtered.length > 50 && (
-        <Form.Description title="" text={`… and ${filtered.length - 50} more`} />
-      )}
+      {filtered.length > 50 && <Form.Description title="" text={`… and ${filtered.length - 50} more`} />}
     </Form>
   );
 }

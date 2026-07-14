@@ -61,10 +61,10 @@ export default function PortsReference() {
               String(p.port).includes(search.trim()) ||
               p.name.toLowerCase().includes(search.toLowerCase()) ||
               p.protocol.toLowerCase().includes(search.toLowerCase()) ||
-              p.description.toLowerCase().includes(search.toLowerCase())
+              p.description.toLowerCase().includes(search.toLowerCase()),
           )
         : PORTS,
-    [search]
+    [search],
   );
 
   return (
@@ -84,9 +84,7 @@ export default function PortsReference() {
           text={`${p.name} — ${p.description}`}
         />
       ))}
-      {filtered.length > 50 && (
-        <Form.Description title="" text={`… and ${filtered.length - 50} more`} />
-      )}
+      {filtered.length > 50 && <Form.Description title="" text={`… and ${filtered.length - 50} more`} />}
     </Form>
   );
 }

@@ -8,19 +8,38 @@ export default function ScientificNotation() {
   const [error, setError] = useState("");
 
   const convert = useCallback(() => {
-    if (!input.trim()) { setError("Please enter a value"); return; }
+    if (!input.trim()) {
+      setError("Please enter a value");
+      return;
+    }
 
     if (direction === "to-sci") {
       const num = parseFloat(input);
-      if (isNaN(num)) { setError("Invalid number"); return; }
+      if (isNaN(num)) {
+        setError("Invalid number");
+        return;
+      }
       setError("");
-      setOutput(num.toExponential(6).replace(/\.?0+e/, "e").replace(/e\+/, "e"));
+      setOutput(
+        num
+          .toExponential(6)
+          .replace(/\.?0+e/, "e")
+          .replace(/e\+/, "e"),
+      );
     } else {
       const m = input.trim().match(/^([\d.-]+)(?:[eE]\s*([+-]?\d+))?$/);
-      if (!m) { setError("Invalid scientific notation"); return; }
+      if (!m) {
+        setError("Invalid scientific notation");
+        return;
+      }
       setError("");
       const val = m[2] ? parseFloat(`${m[1]}e${m[2]}`) : parseFloat(m[1]!);
-      setOutput(Number(val).toPrecision(10).replace(/\.?0+$/, "").replace(/e.+$/, ""));
+      setOutput(
+        Number(val)
+          .toPrecision(10)
+          .replace(/\.?0+$/, "")
+          .replace(/e.+$/, ""),
+      );
     }
   }, [input, direction]);
 
@@ -39,7 +58,12 @@ export default function ScientificNotation() {
         </ActionPanel>
       }
     >
-      <Form.Dropdown id="direction" title="Direction" value={direction} onChange={(v) => setDirection(v as "to-sci" | "from-sci")}>
+      <Form.Dropdown
+        id="direction"
+        title="Direction"
+        value={direction}
+        onChange={(v) => setDirection(v as "to-sci" | "from-sci")}
+      >
         <Form.Dropdown.Item value="to-sci" title="Standard → Scientific" />
         <Form.Dropdown.Item value="from-sci" title="Scientific → Standard" />
       </Form.Dropdown>

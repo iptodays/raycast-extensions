@@ -53,14 +53,7 @@ export default function JsMinifier() {
         value={input}
         onChange={setInput}
       />
-      {output && (
-        <Form.TextArea
-          id="output"
-          title="Minified"
-          value={output}
-          onChange={() => {}}
-        />
-      )}
+      {output && <Form.TextArea id="output" title="Minified" value={output} onChange={() => {}} />}
       {error && <Form.Description text={`⚠️ ${error}`} />}
     </Form>
   );

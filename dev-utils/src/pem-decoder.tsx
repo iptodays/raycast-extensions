@@ -15,7 +15,7 @@ function decodePEM(pem: string): string {
   lines.push(`Base64 length: ${cleaned.length}`);
 
   if (raw.length > 20 && raw[0] === 0x30) {
-    const len = raw[1] < 0x80 ? raw[1] : ((raw[2]! << 8) | raw[3]!);
+    const len = raw[1] < 0x80 ? raw[1] : (raw[2]! << 8) | raw[3]!;
     lines.push(`DER structure: SEQUENCE (${len} bytes)`);
 
     // Find the algorithm OID
@@ -26,13 +26,19 @@ function decodePEM(pem: string): string {
 
     if (type === "CERTIFICATE") {
       const serial = raw.slice(9, 15);
-      const serialHex = Array.from(serial).map((b) => b.toString(16).padStart(2, "0")).join(":");
+      const serialHex = Array.from(serial)
+        .map((b) => b.toString(16).padStart(2, "0"))
+        .join(":");
       lines.push(`Serial (partial): ${serialHex}`);
     }
 
     if (type === "PRIVATE KEY" || type === "RSA PRIVATE KEY") {
       lines.push("Key type: Private key");
-      lines.push(`First 16 bytes (hex): ${Array.from(raw.slice(0, 16)).map((b) => b.toString(16).padStart(2, "0")).join(" ")}`);
+      lines.push(
+        `First 16 bytes (hex): ${Array.from(raw.slice(0, 16))
+          .map((b) => b.toString(16).padStart(2, "0"))
+          .join(" ")}`,
+      );
     }
 
     if (type === "PUBLIC KEY" || type === "RSA PUBLIC KEY") {

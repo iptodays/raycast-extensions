@@ -15,7 +15,7 @@ function parseBytes(input: string): number | null {
   const val = parseFloat(m[1]!);
   const unit = m[2]!.toUpperCase();
   if (isNaN(val) || val < 0) return null;
-  const idx = UNITS.indexOf(unit as typeof UNITS[number]);
+  const idx = UNITS.indexOf(unit as (typeof UNITS)[number]);
   return idx === -1 ? null : val * 1024 ** idx;
 }
 
@@ -57,13 +57,7 @@ export default function DataSizeConverter() {
         </ActionPanel>
       }
     >
-      <Form.TextField
-        id="input"
-        title="Data Size"
-        placeholder="1MB, 512KB, 2.5GB"
-        value={input}
-        onChange={setInput}
-      />
+      <Form.TextField id="input" title="Data Size" placeholder="1MB, 512KB, 2.5GB" value={input} onChange={setInput} />
       {results.length > 0 && (
         <>
           <Form.Description text={`Raw: ${results[0]!.value.split(" ")[0]} B`} />

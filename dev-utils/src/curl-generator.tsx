@@ -10,7 +10,10 @@ export default function CurlGenerator() {
   const [error, setError] = useState("");
 
   const generate = useCallback(() => {
-    if (!url.trim()) { setError("Please enter a URL"); return; }
+    if (!url.trim()) {
+      setError("Please enter a URL");
+      return;
+    }
     setError("");
 
     const parts: string[] = ["curl"];
@@ -58,7 +61,13 @@ export default function CurlGenerator() {
           <Form.Dropdown.Item key={m} value={m} title={m} />
         ))}
       </Form.Dropdown>
-      <Form.TextArea id="headers" title="Headers" placeholder="Content-Type: application/json\nAuthorization: Bearer token" value={headers} onChange={setHeaders} />
+      <Form.TextArea
+        id="headers"
+        title="Headers"
+        placeholder="Content-Type: application/json\nAuthorization: Bearer token"
+        value={headers}
+        onChange={setHeaders}
+      />
       <Form.TextArea id="body" title="Body" placeholder='{"key":"value"}' value={body} onChange={setBody} />
       {output && <Form.TextArea id="output" title="curl Command" value={output} onChange={() => {}} />}
       {error && <Form.Description text={`⚠️ ${error}`} />}

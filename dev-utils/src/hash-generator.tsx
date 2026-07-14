@@ -44,21 +44,9 @@ export default function HashGenerator() {
         </ActionPanel>
       }
     >
-      <Form.TextArea
-        id="input"
-        title="Input"
-        placeholder="Text to hash…"
-        value={input}
-        onChange={setInput}
-      />
+      <Form.TextArea id="input" title="Input" placeholder="Text to hash…" value={input} onChange={setInput} />
       {results.map((r) => (
-        <Form.TextField
-          key={r.algo}
-          id={r.algo}
-          title={r.algo}
-          value={r.hash}
-          onChange={() => {}}
-        />
+        <Form.TextField key={r.algo} id={r.algo} title={r.algo} value={r.hash} onChange={() => {}} />
       ))}
       {error && <Form.Description text={`⚠️ ${error}`} />}
     </Form>

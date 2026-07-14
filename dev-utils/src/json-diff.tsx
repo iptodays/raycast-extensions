@@ -6,9 +6,7 @@ function deepKeys(obj: unknown, prefix = ""): string[] {
   if (Array.isArray(obj)) {
     return obj.flatMap((v, i) => deepKeys(v, prefix ? `${prefix}[${i}]` : `[${i}]`));
   }
-  return Object.entries(obj as Record<string, unknown>).flatMap(([k, v]) =>
-    deepKeys(v, prefix ? `${prefix}.${k}` : k)
-  );
+  return Object.entries(obj as Record<string, unknown>).flatMap(([k, v]) => deepKeys(v, prefix ? `${prefix}.${k}` : k));
 }
 
 function flatten(obj: unknown): Record<string, string> {
@@ -33,7 +31,7 @@ function get(obj: unknown, path: string): unknown {
 
 function diffJSON(a: unknown, b: unknown, path = ""): string[] {
   const diffs: string[] = [];
-  if (typeof a !== typeof b || ((a === null) !== (b === null))) {
+  if (typeof a !== typeof b || (a === null) !== (b === null)) {
     diffs.push(`${path || "root"}: ${JSON.stringify(a)} → ${JSON.stringify(b)} (type change)`);
     return diffs;
   }

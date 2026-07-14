@@ -76,7 +76,7 @@ export default function StringInspector() {
   const copyAll = useCallback(async () => {
     if (!chars.length) return;
     const lines = chars.map(
-      (c) => `'${c.char}' → Code: ${c.codePoint} | Hex: ${c.hex} | UTF-8: ${c.utf8} | ${c.category}`
+      (c) => `'${c.char}' → Code: ${c.codePoint} | Hex: ${c.hex} | UTF-8: ${c.utf8} | ${c.category}`,
     );
     await Clipboard.copy(lines.join("\n"));
     showToast(Toast.Style.Success, "Copied to clipboard");
@@ -101,7 +101,9 @@ export default function StringInspector() {
       {chars.length > 0 && (
         <>
           <Form.Separator />
-          <Form.Description text={`Total: ${chars.length} character${chars.length > 1 ? "s" : ""} | Bytes: ${input.length}`} />
+          <Form.Description
+            text={`Total: ${chars.length} character${chars.length > 1 ? "s" : ""} | Bytes: ${input.length}`}
+          />
           {chars.map((c, i) => (
             <Form.Description
               key={i}

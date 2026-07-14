@@ -50,10 +50,10 @@ export default function DockerReference() {
         ? COMMANDS.filter(
             (c) =>
               c.cmd.toLowerCase().includes(search.toLowerCase()) ||
-              c.description.toLowerCase().includes(search.toLowerCase())
+              c.description.toLowerCase().includes(search.toLowerCase()),
           )
         : COMMANDS,
-    [search]
+    [search],
   );
 
   return (

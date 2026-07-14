@@ -17,21 +17,40 @@ function hslToRgb(h: number, s: number, l: number): [number, number, number] {
   const c = (1 - Math.abs(2 * l1 - 1)) * s1;
   const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
   const m = l1 - c / 2;
-  let r = 0, g = 0, b = 0;
-  if (h < 60) { r = c; g = x; }
-  else if (h < 120) { r = x; g = c; }
-  else if (h < 180) { g = c; b = x; }
-  else if (h < 240) { g = x; b = c; }
-  else if (h < 300) { r = x; b = c; }
-  else { r = c; b = x; }
+  let r = 0,
+    g = 0,
+    b = 0;
+  if (h < 60) {
+    r = c;
+    g = x;
+  } else if (h < 120) {
+    r = x;
+    g = c;
+  } else if (h < 180) {
+    g = c;
+    b = x;
+  } else if (h < 240) {
+    g = x;
+    b = c;
+  } else if (h < 300) {
+    r = x;
+    b = c;
+  } else {
+    r = c;
+    b = x;
+  }
   return [Math.round((r + m) * 255), Math.round((g + m) * 255), Math.round((b + m) * 255)];
 }
 
 function rgbToHsl(r: number, g: number, b: number): [number, number, number] {
-  const rr = r / 255, gg = g / 255, bb = b / 255;
-  const max = Math.max(rr, gg, bb), min = Math.min(rr, gg, bb);
+  const rr = r / 255,
+    gg = g / 255,
+    bb = b / 255;
+  const max = Math.max(rr, gg, bb),
+    min = Math.min(rr, gg, bb);
   const l = (max + min) / 2;
-  let h = 0, s = 0;
+  let h = 0,
+    s = 0;
   if (max !== min) {
     const d = max - min;
     s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
@@ -51,7 +70,10 @@ export default function ColorPalette() {
 
   const generate = useCallback(() => {
     const rgb = hexToRgb(input.trim());
-    if (!rgb) { setError("Enter a valid hex color like #FF0000"); return; }
+    if (!rgb) {
+      setError("Enter a valid hex color like #FF0000");
+      return;
+    }
     setError("");
 
     const [h, s, l] = rgbToHsl(...rgb);
@@ -82,11 +104,13 @@ export default function ColorPalette() {
       }
     }
 
-    setResults(colors.map((c, i) => ({
-      label: `Swatch ${i + 1}`,
-      hex: rgbToHex(...c),
-      preview: "█".repeat(10),
-    })));
+    setResults(
+      colors.map((c, i) => ({
+        label: `Swatch ${i + 1}`,
+        hex: rgbToHex(...c),
+        preview: "█".repeat(10),
+      })),
+    );
   }, [input, scheme]);
 
   const copy = useCallback(async (hex: string) => {

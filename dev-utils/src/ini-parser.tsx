@@ -30,7 +30,10 @@ export default function IniParser() {
   const [error, setError] = useState("");
 
   const convert = useCallback(() => {
-    if (!input.trim()) { setError("Please enter data"); return; }
+    if (!input.trim()) {
+      setError("Please enter data");
+      return;
+    }
 
     if (direction === "ini-json") {
       try {
@@ -73,7 +76,12 @@ export default function IniParser() {
         </ActionPanel>
       }
     >
-      <Form.Dropdown id="direction" title="Direction" value={direction} onChange={(v) => setDirection(v as "ini-json" | "json-ini")}>
+      <Form.Dropdown
+        id="direction"
+        title="Direction"
+        value={direction}
+        onChange={(v) => setDirection(v as "ini-json" | "json-ini")}
+      >
         <Form.Dropdown.Item value="ini-json" title="INI → JSON" />
         <Form.Dropdown.Item value="json-ini" title="JSON → INI" />
       </Form.Dropdown>

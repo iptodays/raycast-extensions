@@ -2,14 +2,34 @@ import { useState, useCallback } from "react";
 import { Form, ActionPanel, Action, Clipboard, showToast, Toast, Icon } from "@raycast/api";
 
 const TIMEZONES = [
-  "UTC", "GMT", "America/New_York", "America/Chicago", "America/Denver",
-  "America/Los_Angeles", "America/Anchorage", "Pacific/Honolulu",
-  "Europe/London", "Europe/Paris", "Europe/Berlin", "Europe/Moscow",
-  "Europe/Istanbul", "Asia/Dubai", "Asia/Kolkata", "Asia/Shanghai",
-  "Asia/Tokyo", "Asia/Seoul", "Asia/Singapore", "Asia/Hong_Kong",
-  "Australia/Sydney", "Australia/Perth", "Pacific/Auckland",
-  "Africa/Cairo", "Africa/Lagos", "America/Sao_Paulo",
-  "America/Argentina/Buenos_Aires", "America/Mexico_City",
+  "UTC",
+  "GMT",
+  "America/New_York",
+  "America/Chicago",
+  "America/Denver",
+  "America/Los_Angeles",
+  "America/Anchorage",
+  "Pacific/Honolulu",
+  "Europe/London",
+  "Europe/Paris",
+  "Europe/Berlin",
+  "Europe/Moscow",
+  "Europe/Istanbul",
+  "Asia/Dubai",
+  "Asia/Kolkata",
+  "Asia/Shanghai",
+  "Asia/Tokyo",
+  "Asia/Seoul",
+  "Asia/Singapore",
+  "Asia/Hong_Kong",
+  "Australia/Sydney",
+  "Australia/Perth",
+  "Pacific/Auckland",
+  "Africa/Cairo",
+  "Africa/Lagos",
+  "America/Sao_Paulo",
+  "America/Argentina/Buenos_Aires",
+  "America/Mexico_City",
 ];
 
 function formatTz(date: Date, tz: string): string {
@@ -42,7 +62,7 @@ export default function TimezoneTool() {
       TIMEZONES.map((tz) => ({
         tz,
         time: formatTz(refDate, tz),
-      }))
+      })),
     );
   }, [inputTime]);
 

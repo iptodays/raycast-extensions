@@ -85,10 +85,18 @@ export default function BaseEncode() {
     try {
       setError("");
       switch (mode) {
-        case "base32-enc": setOutput(base32Encode(input)); break;
-        case "base32-dec": setOutput(base32Decode(input)); break;
-        case "base58-enc": setOutput(base58Encode(input)); break;
-        case "base58-dec": setOutput(base58Decode(input)); break;
+        case "base32-enc":
+          setOutput(base32Encode(input));
+          break;
+        case "base32-dec":
+          setOutput(base32Decode(input));
+          break;
+        case "base58-enc":
+          setOutput(base58Encode(input));
+          break;
+        case "base58-dec":
+          setOutput(base58Decode(input));
+          break;
       }
     } catch (e) {
       setError(`Error: ${(e as Error).message}`);

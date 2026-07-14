@@ -1,8 +1,28 @@
 import { useState, useCallback } from "react";
 import { Form, ActionPanel, Action, Clipboard, showToast, Toast, Icon } from "@raycast/api";
 
-const ONES = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
-  "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
+const ONES = [
+  "",
+  "one",
+  "two",
+  "three",
+  "four",
+  "five",
+  "six",
+  "seven",
+  "eight",
+  "nine",
+  "ten",
+  "eleven",
+  "twelve",
+  "thirteen",
+  "fourteen",
+  "fifteen",
+  "sixteen",
+  "seventeen",
+  "eighteen",
+  "nineteen",
+];
 const TENS = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
 const SCALES = ["", "thousand", "million", "billion", "trillion"];
 
@@ -11,8 +31,9 @@ function under1000(n: number): string {
   const h = Math.floor(n / 100);
   if (h) parts.push(`${ONES[h]} hundred`);
   const r = n % 100;
-  if (r < 20) { if (r) parts.push(ONES[r]); }
-  else {
+  if (r < 20) {
+    if (r) parts.push(ONES[r]);
+  } else {
     const t = Math.floor(r / 10);
     const o = r % 10;
     parts.push(`${TENS[t]}${o ? `-${ONES[o]}` : ""}`);
