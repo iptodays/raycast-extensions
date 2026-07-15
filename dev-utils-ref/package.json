@@ -8,6 +8,7 @@
   "owner": "chaeco",
   "categories": ["Developer Tools", "Productivity", "Documentation"],
   "license": "MIT",
+  "version": "1.0.0",
   "commands": [
     {
       "name": "ascii-table",
