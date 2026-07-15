@@ -1,43 +1,19 @@
-name: Publish
+name: Build & Publish Extensions
 
 on:
   push:
-    branches: [main]
-    paths: ['dev-utils/**', 'dev-utils-ref/**', '.github/workflows/publish.yml']
+    paths:
+      - "dev-utils/**"
+      - "dev-utils-ref/**"
+      - ".github/workflows/publish.yml"
+    branches: [main, master]
 
 jobs:
-  publish-dev-utils:
+  build_publish_extensions:
+    name: Build & Publish Extensions
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: ray
+        uses: raycast/github-actions/ray@master
         with:
-          node-version: 20
-          cache: 'npm'
-          cache-dependency-path: dev-utils/package-lock.json
-      - run: npm ci
-        working-directory: dev-utils
-      - run: npm run build
-        working-directory: dev-utils
-      - run: npm run publish
-        working-directory: dev-utils
-        env:
-          RAYCAST_TOKEN: ${{ secrets.RAYCAST_TOKEN }}
-
-  publish-dev-utils-ref:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
-          cache-dependency-path: dev-utils-ref/package-lock.json
-      - run: npm ci
-        working-directory: dev-utils-ref
-      - run: npm run build
-        working-directory: dev-utils-ref
-      - run: npm run publish
-        working-directory: dev-utils-ref
-        env:
-          RAYCAST_TOKEN: ${{ secrets.RAYCAST_TOKEN }}
+          access_token: "${{ secrets.RAYCAST_ORGANIZATION_TOKEN }}"
