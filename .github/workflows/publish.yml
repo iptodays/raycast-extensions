@@ -19,9 +19,6 @@ jobs:
         working-directory: dev-utils
       - run: npm run build
         working-directory: dev-utils
-      - name: Login to Raycast
-        run: ./node_modules/.bin/ray login --token "${{ secrets.RAYCAST_TOKEN }}"
-        working-directory: dev-utils
       - run: npm run publish
         working-directory: dev-utils
         env:
@@ -39,9 +36,6 @@ jobs:
       - run: npm ci
         working-directory: dev-utils-ref
       - run: npm run build
-        working-directory: dev-utils-ref
-      - name: Login to Raycast
-        run: ./node_modules/.bin/ray login --token "${{ secrets.RAYCAST_TOKEN }}"
         working-directory: dev-utils-ref
       - run: npm run publish
         working-directory: dev-utils-ref

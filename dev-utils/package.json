@@ -691,6 +691,6 @@
     "dev": "ray develop",
     "fix-lint": "ray lint --fix",
     "lint": "ray lint",
-    "publish": "./node_modules/.bin/ray publish"
+    "publish": "npx @raycast/api@latest publish"
   }
 }
