@@ -8,6 +8,7 @@
   "owner": "chaeco",
   "categories": ["Developer Tools", "Productivity"],
   "license": "MIT",
+  "type": "module",
   "version": "1.0.0",
   "commands": [
     {
