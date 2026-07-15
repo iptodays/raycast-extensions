@@ -3,8 +3,8 @@ name: Build & Publish Extensions
 on:
   push:
     paths:
-      - "dev-utils/**"
-      - "dev-utils-ref/**"
+      - "extensions/dev-utils/**"
+      - "extensions/dev-utils-ref/**"
       - ".github/workflows/publish.yml"
     branches: [main, master]
 
